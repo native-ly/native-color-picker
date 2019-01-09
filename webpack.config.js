@@ -17,7 +17,12 @@ if (env === 'build') {
 const config = {
   mode,
   entry: `${__dirname}/src/picker.tsx`,
-  externals: ['react', 'react-native', 'styled-components'],
+  externals: [
+    'react',
+    'styled-components',
+    'expo',
+    '@expo/vector-icons'
+  ],
   devtool,
   output: {
     path: `${__dirname}/lib`,
@@ -30,7 +35,7 @@ const config = {
   module: {
     rules: [
       {
-        test: /\.(tsx)$/,
+        test: /\.tsx$/,
         loader: 'babel-loader',
         exclude: /node_modules/
       }

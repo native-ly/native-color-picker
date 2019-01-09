@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { LinearGradient } from 'expo';
+import { Ionicons } from '@expo/vector-icons';
 
 const Base = styled.FlatList``;
 
@@ -20,7 +22,7 @@ interface Options {
   applyGradient?: boolean;
   columns?: number;
   itemSize?: number;
-  marker?: 'border' | 'tick' | 'fade' | 'none';
+  marker?: 'border' | 'checkmark' | 'fade' | 'none';
 }
 
 export const NativeColorPicker = ({
@@ -44,7 +46,14 @@ export const NativeColorPicker = ({
         itemSize={itemSize}
         marker={marker}
         onPress={() => onSelect(item)}
-      />
+      >
+        {selectedColor &&
+          (marker === 'checkmark' && (
+            <Ionicons name="md-checkmark" size={itemSize} />
+          ))}
+
+        {applyGradient && <LinearGradient colors={['#0000', '#000a']} />}
+      </Color>
     )}
   />
 );
