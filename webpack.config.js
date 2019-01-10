@@ -17,12 +17,7 @@ if (env === 'build') {
 const config = {
   mode,
   entry: `${__dirname}/src/picker.tsx`,
-  externals: [
-    'react',
-    'styled-components',
-    'expo',
-    '@expo/vector-icons'
-  ],
+  externals: ['react', 'styled-components', 'expo', '@expo/vector-icons'],
   devtool,
   output: {
     path: `${__dirname}/lib`,

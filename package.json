@@ -1,6 +1,6 @@
 {
   "name": "native-color-picker",
-  "version": "1.0.0",
+  "version": "1.0.0-beta.1",
   "description": "Color picker for React Native",
   "author": "Jakub Biesiada",
   "license": "MIT",
