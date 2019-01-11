@@ -14,7 +14,7 @@ const Color = styled.TouchableOpacity`
   `}
 `;
 
-interface Options {
+interface Props {
   colors?: string[];
   selectedColor: string;
   onSelect: void;
@@ -34,7 +34,7 @@ export const NativeColorPicker = ({
   columns = 5,
   itemSize = 50,
   marker = 'border'
-}): Options => (
+}): Props => (
   <Base
     data={colors}
     numColumns={columns}
