@@ -1,29 +1,11 @@
-import React from 'react';
-import styled from 'styled-components';
-import { LinearGradient } from 'expo';
-import { Ionicons } from '@expo/vector-icons';
+import React from 'react'
+import { LinearGradient } from 'expo'
 
-const Base = styled.FlatList``;
+import Props from './interfaces/Props'
 
-const Color = styled.TouchableOpacity`
-  background-color: ${({ color }) => color};
-  ${({ itemSize }) => `
-    width: ${itemSize}px;
-    height: ${itemSize}px;
-    border-radius: ${itemSize / 2}px;
-  `}
-`;
-
-interface Props {
-  colors?: string[];
-  selectedColor: string;
-  onSelect: void;
-  horizontal?: boolean;
-  applyGradient?: boolean;
-  columns?: number;
-  itemSize?: number;
-  marker?: 'border' | 'checkmark' | 'fade' | 'none';
-}
+import { Base } from './components/Base'
+import { Color } from './components/Color'
+import { Marker } from './components/Marker'
 
 export const NativeColorPicker = ({
   colors = [],
@@ -33,8 +15,8 @@ export const NativeColorPicker = ({
   applyGradient = false,
   columns = 5,
   itemSize = 50,
-  marker = 'border'
-}): Props => (
+  marker = 'border',
+}: Props): any => (
   <Base
     data={colors}
     numColumns={columns}
@@ -47,13 +29,10 @@ export const NativeColorPicker = ({
         marker={marker}
         onPress={() => onSelect(item)}
       >
-        {selectedColor &&
-          (marker === 'checkmark' && (
-            <Ionicons name="md-checkmark" size={itemSize} />
-          ))}
+        {selectedColor && <Marker type={marker} size={itemSize} />}
 
         {applyGradient && <LinearGradient colors={['#0000', '#000a']} />}
       </Color>
     )}
   />
-);
+)
