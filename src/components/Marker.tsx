@@ -19,7 +19,7 @@ const FadeMark = styled.View`
   background-color: #fff3;
 `
 
-export const Marker = ({ type, size }): any => {
+export const Marker = ({ type, size }): JSX.Element => {
   return type === 'border' ? (
     <BorderMark />
   ) : type === 'checkmark' ? (

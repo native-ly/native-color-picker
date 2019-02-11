@@ -16,7 +16,7 @@ export const NativeColorPicker = ({
   columns = 5,
   itemSize = 50,
   marker = 'border',
-}: Props): any => (
+}: Props): JSX.Element => (
   <Base
     data={colors}
     numColumns={columns}
