@@ -46,6 +46,6 @@ export const Marker = ({ type, size }): JSX.Element => {
       <Ionicons name="md-checkmark" size={(size / 3) * 2} color="#fff" />
     </Base>
   ) : (
-    type === 'fade' && <FadeMark />
+    type === 'fade' && <FadeMark size={size} />
   )
 }
