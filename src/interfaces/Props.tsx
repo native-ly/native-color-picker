@@ -1,10 +1,10 @@
 export default interface Props {
-  colors?: string[]
-  selectedColor?: string
-  onSelect: (item: string) => void
-  horizontal?: boolean
-  applyGradient?: boolean
-  columns?: number
-  itemSize?: number
-  marker?: 'border' | 'checkmark' | 'fade' | 'none'
+  readonly colors?: string[]
+  readonly selectedColor?: string
+  readonly onSelect?: (item: string) => void
+  readonly horizontal?: boolean
+  readonly applyGradient?: boolean
+  readonly columns?: number
+  readonly itemSize?: number
+  readonly marker?: 'border' | 'checkmark' | 'fade' | 'none'
 }
