@@ -2,16 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 import { Ionicons } from '@expo/vector-icons'
 
-const mixin = `
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-`
+import { mixin } from '../helpers/mixin'
 
 const Base = styled.View`
   ${mixin}
+
   display: flex;
   align-items: center;
   justify-content: center;

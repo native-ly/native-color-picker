@@ -1,11 +1,11 @@
 import React from 'react'
-import { LinearGradient } from 'expo'
 
 import Props from './interfaces/Props'
 
 import { Base } from './components/Base'
 import { Color } from './components/Color'
 import { Marker } from './components/Marker'
+import { Gradient } from './components/Gradient'
 
 export const NativeColorPicker = ({
   colors = [],
@@ -31,7 +31,9 @@ export const NativeColorPicker = ({
       >
         {selectedColor && <Marker type={marker} size={itemSize} />}
 
-        {applyGradient && <LinearGradient colors={['#0000', '#000a']} />}
+        {applyGradient && (
+          <Gradient size={itemSize} colors={['#0000', '#000a']} />
+        )}
       </Color>
     )}
   />
