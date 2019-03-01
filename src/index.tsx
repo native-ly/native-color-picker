@@ -10,7 +10,7 @@ import { Marker } from './components/Marker'
 export const NativeColorPicker = ({
   colors = [],
   selectedColor,
-  onSelect,
+  onSelect = item => item,
   horizontal = false,
   applyGradient = false,
   columns = 5,
