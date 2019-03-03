@@ -29,7 +29,7 @@ export const NativeColorPicker = ({
         marker={marker}
         onPress={() => onSelect(item)}
       >
-        {selectedColor && <Marker type={marker} size={itemSize} />}
+        {selectedColor === item && <Marker type={marker} size={itemSize} />}
 
         {applyGradient && (
           <Gradient size={itemSize} colors={['#0000', '#000a']} />
