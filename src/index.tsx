@@ -1,4 +1,5 @@
 import React from 'react'
+import isDarkColor from 'is-dark-color'
 
 import Props from './interfaces/Props'
 
@@ -29,7 +30,9 @@ export const NativeColorPicker = ({
         marker={marker}
         onPress={() => onSelect(item)}
       >
-        {selectedColor === item && <Marker type={marker} size={itemSize} />}
+        {selectedColor === item && (
+          <Marker type={marker} size={itemSize} isDark={isDarkColor(item)} />
+        )}
 
         {applyGradient && (
           <Gradient size={itemSize} colors={['#0000', '#000a']} />
