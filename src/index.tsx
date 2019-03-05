@@ -35,7 +35,10 @@ export const NativeColorPicker = ({
         )}
 
         {applyGradient && (
-          <Gradient size={itemSize} colors={['#0000', '#000a']} />
+          <Gradient
+            size={itemSize}
+            colors={isDarkColor(item) ? ['#0000', '#000a'] : ['#fff0', '#fffa']}
+          />
         )}
       </Color>
     )}
