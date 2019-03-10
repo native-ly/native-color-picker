@@ -3,10 +3,8 @@
 [![NPM version](http://img.shields.io/npm/v/native-color-picker.svg?style=flat-square)](https://www.npmjs.com/package/native-color-picker)
 [![NPM downloads](http://img.shields.io/npm/dm/native-color-picker.svg?style=flat-square)](https://www.npmjs.com/package/native-color-picker)
 
-## About
-
 ## How to Install
-At the beginning install the library in your project via npm:
+First, install the library in your project by npm:
 ```sh
 $ npm install native-color-picker
 ```
@@ -23,6 +21,15 @@ import NativeColorPicker from 'native-color-picker';
 ```
 
 ## Options
+Name | Type | Default | Description | Available options
+-|-|-|-|-
+**colors** | string[] | `[]` | Colors to display in a color picker | e.g.: `['#f96204', '#43d8c9']`
+**selectedColor** | string | ` ` | Marked item | Color from the list `colors`
+**onSelect** | function | `item => item` | Select color item | e.g.: `elem => { /* code */ }`
+**applyGradient** | boolean | `false` | Enable or disable gradient layer over the color item | `true` - enable, `false` - disable
+**columns** | number | `5` | Number of columns in color list (only vertical) | Number of columns
+**itemSize** | number | `50` | Size (`width` & `height`) of list item | Size of list item
+**marker** | string | `border` | Type of marker for selected item | `border`, `checkmark`, `fade`, `none`
 
 ## License
 This project is licensed under the MIT License © 2019-present Jakub Biesiada

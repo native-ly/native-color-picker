@@ -1,8 +1,8 @@
 # NativeColorPicker Changelog
 
-## 1.0.0 beta 1 (Soon)
+## 1.0.0 alpha 1 (2019-03-10)
 #### New Feature
-- added flatList grid (horizontal / vertical)
+- added flatList grid (vertical)
 - added gradient layer option
 - added `fade`, `border` & `checkmark` markers
 - added `onSelect` callback

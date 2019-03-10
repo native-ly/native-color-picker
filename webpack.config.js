@@ -16,7 +16,13 @@ module.exports = env => {
   return {
     mode,
     entry: `${__dirname}/src/index.tsx`,
-    externals: ['expo', '@expo/vector-icons', 'react', 'styled-components'],
+    externals: [
+      'expo',
+      '@expo/vector-icons',
+      'is-dark-color',
+      'react',
+      'styled-components',
+    ],
     devtool,
     output: {
       path: `${__dirname}/lib`,
