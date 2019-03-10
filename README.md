@@ -27,15 +27,15 @@ import { NativeColorPicker } from 'native-color-picker';
 Name | Type | Default | Description | Available options
 -|-|-|-|-
 **colors** | string[] | `[]` | Colors to display in a color picker | e.g.: `['#f96204', '#43d8c9']`
-**selectedColor** | string | ` ` | Marked item | Color from the list `colors`
-**onSelect** | function | `item => item` | Select color item | e.g.: `elem => { /* code */ }`
-**gradient** | boolean | `false` | Enable or disable gradient layer over the color item | `true` - enable, `false` - disable
 **columns** | number | `5` | Number of columns in color list (only vertical) | Number of columns
+**gradient** | boolean | `false` | Enable or disable gradient layer over the color item | `true` - enable, `false` - disable
 **horizontal** | boolean | `false` | Enable or disable horizontal scroll direction | `true` - horizontal, `false` - vertical
-**sort** | boolean | `false` | Order colors by perception | `true` - enable, `false` - disable
-**shadow** | boolean | `false` | Display shadow for list items | `true` - enable, `false` - disable
 **itemSize** | number | `44` | Size (`width` & `height`) of list item | Size of list item
 **marker** | string | `border` | Type of marker for selected item | `border`, `checkmark`, `fade`, `none`
+**onSelect** | function | `item => item` | Select color item | e.g.: `elem => { /* code */ }`
+**selectedColor** | string | ` ` | Marked item | Color from the list `colors`
+**shadow** | boolean | `false` | Display shadow for list items | `true` - enable, `false` - disable
+**sort** | boolean | `false` | Order colors by perception | `true` - enable, `false` - disable
 
 ## License
 This project is licensed under the MIT License © 2019-present Jakub Biesiada
