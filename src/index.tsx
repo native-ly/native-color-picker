@@ -1,5 +1,6 @@
 import React from 'react'
 import isDarkColor from 'is-dark-color'
+import colorSort from 'color-sort'
 
 import Props from './interfaces/Props'
 
@@ -13,7 +14,9 @@ export const NativeColorPicker = ({
   selectedColor,
   onSelect = item => item,
   horizontal = false,
+  shadow = false,
   applyGradient = false,
+  sort = false,
   columns = 5,
   itemSize = 50,
   marker = 'border',
@@ -21,7 +24,7 @@ export const NativeColorPicker = ({
 }: Props): JSX.Element => (
   <Base
     {...props}
-    data={colors}
+    data={sort ? colorSort(colors) : colors}
     numColumns={columns}
     horizontal={horizontal}
     keyExtractor={index => index.toString()}
@@ -30,6 +33,7 @@ export const NativeColorPicker = ({
         color={item}
         itemSize={itemSize}
         marker={marker}
+        shadow={shadow}
         onPress={() => onSelect(item)}
       >
         {selectedColor === item && (

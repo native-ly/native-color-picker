@@ -32,6 +32,7 @@
   },
   "homepage": "https://github.com/JB1905/native-color-picker#readme",
   "dependencies": {
+    "color-sort": "^0.0.1",
     "is-dark-color": "^1.2.0"
   },
   "devDependencies": {

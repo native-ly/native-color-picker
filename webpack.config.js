@@ -17,6 +17,7 @@ module.exports = env => {
     mode,
     entry: `${__dirname}/src/index.tsx`,
     externals: [
+      'color-sort',
       'expo',
       '@expo/vector-icons',
       'is-dark-color',
