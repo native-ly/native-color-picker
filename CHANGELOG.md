@@ -1,6 +1,6 @@
 # NativeColorPicker Changelog
 
-## 1.0.0 alpha 1 (2019-03-10)
+## 1.0.0 alpha 1 / 1.0.0 alpha 1.1 (2019-03-10)
 #### New Feature
 - added flatList grid (vertical)
 - added gradient layer option
