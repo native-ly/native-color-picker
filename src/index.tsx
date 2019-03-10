@@ -15,10 +15,10 @@ export const NativeColorPicker = ({
   onSelect = item => item,
   horizontal = false,
   shadow = false,
-  applyGradient = false,
+  gradient = false,
   sort = false,
   columns = 5,
-  itemSize = 50,
+  itemSize = 44,
   marker = 'border',
   ...props
 }: Props): JSX.Element => (
@@ -40,10 +40,10 @@ export const NativeColorPicker = ({
           <Marker type={marker} size={itemSize} isDark={isDarkColor(item)} />
         )}
 
-        {applyGradient && (
+        {gradient && (
           <Gradient
             size={itemSize}
-            colors={isDarkColor(item) ? ['#0000', '#000a'] : ['#fff0', '#fffa']}
+            colors={isDarkColor(item) ? ['#0000', '#0006'] : ['#fff6', '#fff0']}
           />
         )}
       </Color>

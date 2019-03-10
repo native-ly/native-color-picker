@@ -16,17 +16,17 @@ const BorderMark = styled.View`
   ${mixin}
 
   margin: 3px;
-  border: 3px solid #fff;
 
-  ${({ size }) => `
+  ${({ size, color }) => `
     border-radius: ${(size - 6) / 2}px;
+    border: ${Math.round(size / 20)}px solid ${color};
   `}
 `
 
 const FadeMark = styled.View`
   ${mixin}
 
-  background-color: #fff3;
+  background-color: #fff8;
 
   ${({ size }) => `
     border-radius: ${size / 2}px;
@@ -35,7 +35,7 @@ const FadeMark = styled.View`
 
 export const Marker = ({ type, size, isDark }): JSX.Element => {
   return type === 'border' ? (
-    <BorderMark size={size} />
+    <BorderMark size={size} color={isDark ? '#fff' : '#000'} />
   ) : type === 'checkmark' ? (
     <Base>
       <Ionicons

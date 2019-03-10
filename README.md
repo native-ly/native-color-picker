@@ -29,11 +29,11 @@ Name | Type | Default | Description | Available options
 **colors** | string[] | `[]` | Colors to display in a color picker | e.g.: `['#f96204', '#43d8c9']`
 **selectedColor** | string | ` ` | Marked item | Color from the list `colors`
 **onSelect** | function | `item => item` | Select color item | e.g.: `elem => { /* code */ }`
-**applyGradient** | boolean | `false` | Enable or disable gradient layer over the color item | `true` - enable, `false` - disable
+**gradient** | boolean | `false` | Enable or disable gradient layer over the color item | `true` - enable, `false` - disable
 **columns** | number | `5` | Number of columns in color list (only vertical) | Number of columns
 **sort** | boolean | `false` | Order colors by perception | `true` - enable, `false` - disable
 **shadow** | boolean | `false` | Display shadow for list items | `true` - enable, `false` - disable
-**itemSize** | number | `50` | Size (`width` & `height`) of list item | Size of list item
+**itemSize** | number | `44` | Size (`width` & `height`) of list item | Size of list item
 **marker** | string | `border` | Type of marker for selected item | `border`, `checkmark`, `fade`, `none`
 
 ## License

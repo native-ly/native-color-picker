@@ -4,7 +4,7 @@ export default interface Props {
   readonly onSelect?: (item: string) => void
   readonly horizontal?: boolean
   readonly shadow?: boolean
-  readonly applyGradient?: boolean
+  readonly gradient?: boolean
   readonly sort?: boolean
   readonly columns?: number
   readonly itemSize?: number
