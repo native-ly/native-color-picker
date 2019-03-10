@@ -3,6 +3,9 @@
 [![NPM version](http://img.shields.io/npm/v/native-color-picker.svg?style=flat-square)](https://www.npmjs.com/package/native-color-picker)
 [![NPM downloads](http://img.shields.io/npm/dm/native-color-picker.svg?style=flat-square)](https://www.npmjs.com/package/native-color-picker)
 
+## About
+React Native color picker component
+
 ## How to Install
 First, install the library in your project by npm:
 ```sh
@@ -28,6 +31,8 @@ Name | Type | Default | Description | Available options
 **onSelect** | function | `item => item` | Select color item | e.g.: `elem => { /* code */ }`
 **applyGradient** | boolean | `false` | Enable or disable gradient layer over the color item | `true` - enable, `false` - disable
 **columns** | number | `5` | Number of columns in color list (only vertical) | Number of columns
+**sort** | boolean | `false` | Order colors by perception | `true` - enable, `false` - disable
+**shadow** | boolean | `false` | Display shadow for list items | `true` - enable, `false` - disable
 **itemSize** | number | `50` | Size (`width` & `height`) of list item | Size of list item
 **marker** | string | `border` | Type of marker for selected item | `border`, `checkmark`, `fade`, `none`
 
