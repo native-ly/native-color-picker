@@ -25,8 +25,8 @@ export const NativeColorPicker = ({
   <Base
     {...props}
     data={sort ? colorSort(colors) : colors}
-    numColumns={columns}
     horizontal={horizontal}
+    numColumns={horizontal ? 1 : columns}
     keyExtractor={index => index.toString()}
     renderItem={({ item }) => (
       <Color
