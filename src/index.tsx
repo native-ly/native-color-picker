@@ -1,6 +1,6 @@
 import React from 'react'
-import isDarkColor from 'is-dark-color'
 import colorSort from 'color-sort'
+import isDarkColor from 'is-dark-color'
 
 import Props from './interfaces/Props'
 
