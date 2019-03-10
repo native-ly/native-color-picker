@@ -11,39 +11,42 @@ import { Gradient } from './components/Gradient'
 
 export const NativeColorPicker = ({
   colors = [],
-  selectedColor,
-  onSelect = item => item,
-  horizontal = false,
-  shadow = false,
-  gradient = false,
-  sort = false,
   columns = 5,
+  gradient = false,
+  horizontal = false,
   itemSize = 44,
   marker = 'border',
+  onSelect = item => item,
+  selectedColor,
+  shadow = false,
+  sort = false,
   ...props
 }: Props): JSX.Element => (
   <Base
     {...props}
     data={sort ? colorSort(colors) : colors}
     horizontal={horizontal}
-    numColumns={horizontal ? 1 : columns}
     keyExtractor={index => index.toString()}
+    numColumns={horizontal ? 1 : columns}
     renderItem={({ item }) => (
       <Color
         color={item}
         itemSize={itemSize}
-        marker={marker}
-        shadow={shadow}
         onPress={() => onSelect(item)}
+        shadow={shadow}
       >
         {selectedColor === item && (
-          <Marker type={marker} size={itemSize} isDark={isDarkColor(item)} />
+          <Marker
+            isDark={isDarkColor(item)}
+            size={itemSize}
+            type={marker}
+          />
         )}
 
         {gradient && (
           <Gradient
-            size={itemSize}
             colors={isDarkColor(item) ? ['#0000', '#0006'] : ['#fff6', '#fff0']}
+            size={itemSize}
           />
         )}
       </Color>
