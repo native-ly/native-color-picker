@@ -17,7 +17,7 @@ $ yarn add native-color-picker
 ## Getting Started
 **• Connect libary with project using ES6 import:**
 ```js
-import NativeColorPicker from 'native-color-picker';
+import { NativeColorPicker } from 'native-color-picker';
 ```
 
 ## Options
