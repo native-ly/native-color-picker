@@ -34,15 +34,13 @@ const FadeMark = styled.View`
 `
 
 export const Marker = ({ type, size, isDark }): JSX.Element => {
+  let contrast: string = isDark ? '#fff' : '#000'
+
   return type === 'border' ? (
-    <BorderMark size={size} color={isDark ? '#fff' : '#000'} />
+    <BorderMark size={size} color={contrast} />
   ) : type === 'checkmark' ? (
     <Base>
-      <Ionicons
-        name="md-checkmark"
-        size={(size / 3) * 2}
-        color={isDark ? '#fff' : '#000'}
-      />
+      <Ionicons name="md-checkmark" size={(size / 3) * 2} color={contrast} />
     </Base>
   ) : (
     type === 'fade' && <FadeMark size={size} />
