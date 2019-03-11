@@ -43,6 +43,7 @@
     "@babel/preset-typescript": "^7.3.3",
     "@babel/register": "^7.0.0",
     "@types/expo": "^32.0.6",
+    "@types/expo__vector-icons": "^9.0.1",
     "@types/react": "^16.8.7",
     "@types/styled-components": "^4.1.12",
     "@typescript-eslint/parser": "^1.4.2",
