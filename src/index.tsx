@@ -28,7 +28,7 @@ export const NativeColorPicker = ({
     horizontal={horizontal}
     keyExtractor={index => index.toString()}
     numColumns={horizontal ? 1 : columns}
-    renderItem={({ item }) => (
+    renderItem={({ item }: { item: string }) => (
       <Color
         color={item}
         itemSize={itemSize}
