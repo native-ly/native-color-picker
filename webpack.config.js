@@ -22,6 +22,7 @@ module.exports = env => {
       '@expo/vector-icons',
       'is-dark-color',
       'react',
+      'react-native',
       'styled-components',
     ],
     devtool,

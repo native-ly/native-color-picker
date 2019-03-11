@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Ionicons } from '@expo/vector-icons'
 
-import { mixin } from '../helpers/mixin'
+import { mixin, countSize } from '../helpers'
 
 const Base = styled.View`
   ${mixin}
@@ -15,11 +15,10 @@ const Base = styled.View`
 const BorderMark = styled.View`
   ${mixin}
 
-  margin: 3px;
-
   ${({ color, size }) => `
-    border-radius: ${(size - 6) / 2}px;
-    border: ${Math.round(size / 20)}px solid ${color};
+    margin: ${countSize(size)}px;
+    border-radius: ${(size - 2 * countSize(size)) / 2}px;
+    border: ${countSize(size)}px solid ${color};
   `}
 `
 

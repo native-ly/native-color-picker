@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { LinearGradient } from 'expo'
 
-import { mixin } from '../helpers/mixin'
+import { mixin } from '../helpers'
 
 export const Gradient = styled(LinearGradient)`
   ${mixin}
