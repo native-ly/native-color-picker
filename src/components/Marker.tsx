@@ -33,7 +33,7 @@ const FadeMark = styled.View`
   `}
 `
 
-export const Marker = ({ type, size, isDark }): JSX.Element => {
+export const Marker = ({ isDark, size, type }): JSX.Element => {
   let contrast: string = isDark ? '#fff' : '#000'
 
   return type === 'border' ? (
