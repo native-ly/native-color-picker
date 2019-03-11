@@ -1,10 +1,10 @@
 import React from 'react'
+import { FlatList } from 'react-native'
 import colorSort from 'color-sort'
 import isDarkColor from 'is-dark-color'
 
 import Props from './interfaces/Props'
 
-import { Base } from './components/Base'
 import { Color } from './components/Color'
 import { Marker } from './components/Marker'
 import { Gradient } from './components/Gradient'
@@ -22,7 +22,7 @@ export const NativeColorPicker = ({
   sort = false,
   ...props
 }: Props): JSX.Element => (
-  <Base
+  <FlatList
     {...props}
     data={sort ? colorSort(colors) : colors}
     horizontal={horizontal}
