@@ -1,7 +1,15 @@
-import styled from 'styled-components'
+import styled from 'styled-components/native'
 
 export const Color = styled.TouchableOpacity`
-  ${({ color, itemSize, shadow }) => `
+  ${({
+    color,
+    itemSize,
+    shadow,
+  }: {
+    color: string
+    itemSize: number
+    shadow: boolean
+  }) => `
     background-color: ${color};
     width: ${itemSize}px;
     height: ${itemSize}px;

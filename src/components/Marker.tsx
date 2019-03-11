@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from 'styled-components/native'
 import { Ionicons } from '@expo/vector-icons'
 
 import { mixin, countSize } from '../helpers'
@@ -15,7 +15,7 @@ const Base = styled.View`
 const BorderMark = styled.View`
   ${mixin}
 
-  ${({ color, size }) => `
+  ${({ color, size }: { color: string; size: number }) => `
     margin: ${countSize(size)}px;
     border-radius: ${(size - 2 * countSize(size)) / 2}px;
     border: ${countSize(size)}px solid ${color};
@@ -27,7 +27,7 @@ const FadeMark = styled.View`
 
   background-color: #fff8;
 
-  ${({ size }) => `
+  ${({ size }: { size: number }) => `
     border-radius: ${size / 2}px;
   `}
 `

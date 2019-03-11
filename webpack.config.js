@@ -23,7 +23,7 @@ module.exports = env => {
       'is-dark-color',
       'react',
       'react-native',
-      'styled-components',
+      'styled-components/native',
     ],
     devtool,
     output: {
