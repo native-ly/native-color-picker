@@ -1,5 +1,17 @@
 # NativeColorPicker Changelog
 
+## 1.0.0 alpha 4 (2019-03-11)
+#### Improvement
+- improved `border` mark size and position
+- improved gradient size
+
+#### Internal
+- added missing types
+- reorganized components and helpers
+
+#### Repository Changes
+- removed unused devDependencies
+
 ## 1.0.0 alpha 3 (2019-03-11)
 #### New Feature
 - added horizontal scroll support
@@ -10,6 +22,8 @@
 
 #### Change
 - added contrast to `border` mark
+
+#### Improvement
 - improved gradient contrast
 - improved `fade` mark
 
