@@ -1,5 +1,5 @@
 export default interface Props {
-  readonly colors?: string[]
+  readonly colors: string[]
   readonly columns?: number
   readonly gradient?: boolean
   readonly horizontal?: boolean
