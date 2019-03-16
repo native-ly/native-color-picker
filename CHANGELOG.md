@@ -1,6 +1,6 @@
 # NativeColorPicker Changelog
 
-## 1.0.0 beta 1 (2019-03-16)
+## 1.0.0 beta 1 / 1.0.0 beta 1.1 (2019-03-16)
 #### New Feature
 - added `markerStyle` option
 
