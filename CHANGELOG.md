@@ -4,6 +4,13 @@
 #### New Feature
 - added `markerStyle` option
 
+#### Internal
+- switched from `is-dark-color` to `color`
+
+#### Repository Changes
+- cleaned up npm scripts
+- added ESLint for React Native
+
 ## 1.0.0 alpha 4 (2019-03-11)
 #### Improvement
 - improved `border` mark size and position
