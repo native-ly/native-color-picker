@@ -1,13 +1,15 @@
 import React from 'react'
 import { FlatList } from 'react-native'
 import colorSort from 'color-sort'
-import isDarkColor from 'is-dark-color'
+import Color from 'color'
 
 import Props from './interfaces/Props'
 
-import { Color } from './components/Color'
+import { Item } from './components/Item'
 import { Marker } from './components/Marker'
 import { Gradient } from './components/Gradient'
+
+import { lighter, darker } from './helpers'
 
 export const NativeColorPicker = ({
   colors = [],
@@ -16,6 +18,7 @@ export const NativeColorPicker = ({
   horizontal = false,
   itemSize = 44,
   marker = 'border',
+  markerStyle = 'contrast',
   onSelect = item => item,
   selectedColor,
   shadow = false,
@@ -29,7 +32,7 @@ export const NativeColorPicker = ({
     keyExtractor={index => index.toString()}
     numColumns={horizontal ? 1 : columns}
     renderItem={({ item }: { item: string }) => (
-      <Color
+      <Item
         color={item}
         itemSize={itemSize}
         onPress={() => onSelect(item)}
@@ -37,7 +40,8 @@ export const NativeColorPicker = ({
       >
         {selectedColor === item && (
           <Marker
-            isDark={isDarkColor(item)}
+            color={item}
+            markerStyle={markerStyle}
             size={itemSize}
             type={marker}
           />
@@ -45,15 +49,11 @@ export const NativeColorPicker = ({
 
         {gradient && (
           <Gradient
-            colors={
-              isDarkColor(item)
-                ? ['transparent', '#0006']
-                : ['#fff6', 'transparent']
-            }
+            colors={Color(item).isDark() ? darker(item) : lighter(item)}
             size={itemSize}
           />
         )}
-      </Color>
+      </Item>
     )}
   />
 )

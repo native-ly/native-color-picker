@@ -1,6 +1,6 @@
 import styled from 'styled-components/native'
 
-export const Color = styled.TouchableOpacity`
+export const Item = styled.TouchableOpacity`
   ${({
     color,
     itemSize,
@@ -22,7 +22,7 @@ export const Color = styled.TouchableOpacity`
         shadow-opacity: 0.75;
         shadow-radius: 5px;
         shadow-color: ${color};
-        shadow-offset: 0px 0px;
+        shadow-offset: 0 0;
       `
         : ``
     }

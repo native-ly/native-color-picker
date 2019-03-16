@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from 'styled-components/native'
 import { Ionicons } from '@expo/vector-icons'
+import Color from 'color'
 
-import { mixin, countSize } from '../helpers'
+import { mixin, checkColor, countSize } from '../helpers'
 
 const Base = styled.View`
   ${mixin}
@@ -12,7 +13,7 @@ const Base = styled.View`
   justify-content: center;
 `
 
-const BorderMark = styled.View`
+const BorderMarker = styled.View`
   ${mixin}
 
   ${({ color, size }: { color: string; size: number }) => `
@@ -22,7 +23,7 @@ const BorderMark = styled.View`
   `}
 `
 
-const FadeMark = styled.View`
+const FadeMarker = styled.View`
   ${mixin}
 
   background-color: #fff8;
@@ -32,16 +33,27 @@ const FadeMark = styled.View`
   `}
 `
 
-export const Marker = ({ isDark, size, type }): JSX.Element => {
-  let contrast: string = isDark ? '#fff' : '#000'
+export const Marker = ({
+  color,
+  size,
+  markerStyle,
+  type,
+}): JSX.Element => {
+  if (markerStyle === 'adjust') {
+    color = checkColor(color)
+  } else if (markerStyle === 'contrast') {
+    color = Color(color).isDark() ? '#fff' : '#000'
+  } else {
+    color = markerStyle
+  }
 
   return type === 'border' ? (
-    <BorderMark color={contrast} size={size} />
+    <BorderMarker color={color} size={size} />
   ) : type === 'checkmark' ? (
     <Base>
-      <Ionicons color={contrast} name="md-checkmark" size={(size / 3) * 2} />
+      <Ionicons color={color} name="md-checkmark" size={(size / 3) * 2} />
     </Base>
   ) : (
-    type === 'fade' && <FadeMark size={size} />
+    type === 'fade' && <FadeMarker size={size} />
   )
 }

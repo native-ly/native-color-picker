@@ -5,13 +5,17 @@ module.exports = {
     'plugin:prettier/recommended',
     'plugin:react/recommended',
   ],
+  plugins: ['prettier', 'react-native'],
+  env: {
+    'react-native/react-native': true,
+  },
   rules: {
     'react/prop-types': 0,
     'no-unused-vars': ['off'],
-  },
-  plugins: ['prettier'],
-  env: {
-    browser: true,
+    'react-native/no-unused-styles': 2,
+    'react-native/split-platform-components': 2,
+    'react-native/no-inline-styles': 2,
+    'react-native/no-color-literals': 2,
   },
   parserOptions: {
     ecmaVersion: 6,
@@ -22,7 +26,7 @@ module.exports = {
   },
   settings: {
     react: {
-      version: require('./package.json').devDependencies.react,
+      version: 'detect',
     },
   },
 }

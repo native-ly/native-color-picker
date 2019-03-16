@@ -5,6 +5,7 @@ export default interface Props {
   readonly horizontal?: boolean
   readonly itemSize?: number
   readonly marker?: 'border' | 'checkmark' | 'fade' | 'none'
+  readonly markerStyle?: 'adjust' | 'contrast' | string
   readonly onSelect?: (item: string) => void
   readonly selectedColor?: string
   readonly shadow?: boolean

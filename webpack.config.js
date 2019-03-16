@@ -17,10 +17,10 @@ module.exports = env => {
     mode,
     entry: `${__dirname}/src/index.tsx`,
     externals: [
+      'color',
       'color-sort',
       'expo',
       '@expo/vector-icons',
-      'is-dark-color',
       'react',
       'react-native',
       'styled-components/native',
