@@ -3,6 +3,8 @@ import styled from 'styled-components/native'
 import { Ionicons } from '@expo/vector-icons'
 import Color from 'color'
 
+import { BorderMarkerProps, FadeMarkerProps } from '../interfaces/Props'
+
 import { mixin, checkColor, countSize } from '../helpers'
 
 const Base = styled.View`
@@ -16,7 +18,7 @@ const Base = styled.View`
 const BorderMarker = styled.View`
   ${mixin}
 
-  ${({ color, size }: { color: string; size: number }) => `
+  ${({ color, size }: BorderMarkerProps) => `
     margin: ${countSize(size)}px;
     border-radius: ${(size - 2 * countSize(size)) / 2}px;
     border: ${countSize(size)}px solid ${color};
@@ -28,7 +30,7 @@ const FadeMarker = styled.View`
 
   background-color: #fff8;
 
-  ${({ size }: { size: number }) => `
+  ${({ size }: FadeMarkerProps) => `
     border-radius: ${size / 2}px;
   `}
 `
