@@ -3,7 +3,10 @@ import styled from 'styled-components/native'
 import { Ionicons } from '@expo/vector-icons'
 import Color from 'color'
 
-import { BorderMarkerProps, FadeMarkerProps } from '../interfaces/Props'
+import {
+  BorderMarker as BorderMarkerProps,
+  FadeMarker as FadeMarkerProps,
+} from '../interfaces'
 
 import { mixin, checkColor, countSize } from '../helpers'
 

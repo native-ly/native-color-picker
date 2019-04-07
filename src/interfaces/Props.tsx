@@ -1,5 +1,4 @@
-import { FlatListProps, TouchableOpacityProps, ViewProps } from 'react-native'
-import { LinearGradientProps } from 'expo'
+import { FlatListProps } from 'react-native'
 
 export default interface Props extends FlatListProps<any> {
   readonly colors: string[]
@@ -13,22 +12,4 @@ export default interface Props extends FlatListProps<any> {
   readonly selectedColor?: string
   readonly shadow?: boolean
   readonly sort?: boolean
-}
-
-export interface ItemProps extends TouchableOpacityProps {
-  color: string
-  itemSize: number
-  shadow: boolean
-}
-
-export interface GradientProps extends LinearGradientProps {
-  size: number
-}
-
-export interface FadeMarkerProps extends ViewProps {
-  size: number
-}
-
-export interface BorderMarkerProps extends FadeMarkerProps {
-  color: string
 }

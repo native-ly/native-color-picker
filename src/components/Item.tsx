@@ -1,6 +1,6 @@
 import styled from 'styled-components/native'
 
-import { ItemProps } from '../interfaces/Props'
+import { Item as ItemProps } from '../interfaces'
 
 export const Item = styled.TouchableOpacity`
   ${({ color, itemSize, shadow }: ItemProps) => `

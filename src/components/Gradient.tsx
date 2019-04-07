@@ -1,7 +1,7 @@
 import styled from 'styled-components/native'
 import { LinearGradient } from 'expo'
 
-import { GradientProps } from '../interfaces/Props'
+import { Gradient as GradientProps } from '../interfaces'
 
 import { mixin } from '../helpers'
 
