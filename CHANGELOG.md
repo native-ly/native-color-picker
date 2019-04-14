@@ -1,5 +1,10 @@
 # NativeColorPicker Changelog
 
+## 1.0.0 beta 2
+#### Repository Changes
+- switched from `babel` to `typescript` loader
+- updated types & interfaces
+
 ## 1.0.0 beta 1 / 1.0.0 beta 1.1 / 1.0.0 beta 1.2 (2019-03-16)
 #### New Feature
 - added `markerStyle` option

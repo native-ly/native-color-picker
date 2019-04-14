@@ -3,7 +3,7 @@ import { FlatList } from 'react-native'
 import colorSort from 'color-sort'
 import Color from 'color'
 
-import Props from './interfaces'
+import { Props } from './interfaces'
 
 import { Item } from './components/Item'
 import { Marker } from './components/Marker'

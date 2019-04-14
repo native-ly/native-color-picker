@@ -1,9 +1,8 @@
 import { ViewProps } from 'react-native'
 
-export interface FadeMarker extends ViewProps {
-  readonly size: number
-}
-
-export interface BorderMarker extends FadeMarker {
+export interface Marker extends ViewProps {
   readonly color: string
+  readonly size: number
+  readonly markerStyle: string
+  readonly type: 'border' | 'checkmark' | 'fade' | 'none'
 }

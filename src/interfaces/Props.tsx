@@ -1,6 +1,6 @@
 import { FlatListProps } from 'react-native'
 
-export default interface Props extends FlatListProps<any> {
+export interface Props extends FlatListProps<string> {
   readonly colors: string[]
   readonly columns?: number
   readonly gradient?: boolean
