@@ -1,8 +1,14 @@
 # NativeColorPicker Changelog
 
-## 1.0.0 beta 2
+## 1.0.0 beta 3 (2019-04-14)
+#### Breaking Changes
+- `NativeColorCards` component is now default export
+
+## 1.0.0 beta 2 (2019-04-14)
 #### Repository Changes
 - switched from `babel` to `typescript` loader
+
+#### Internal
 - updated types & interfaces
 
 ## 1.0.0 beta 1 / 1.0.0 beta 1.1 / 1.0.0 beta 1.2 (2019-03-16)

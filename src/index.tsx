@@ -11,7 +11,7 @@ import { Gradient } from './components/Gradient'
 
 import { lighter, darker } from './helpers'
 
-export const NativeColorPicker = ({
+const NativeColorPicker = ({
   colors = [],
   columns = 5,
   gradient = false,
@@ -57,3 +57,5 @@ export const NativeColorPicker = ({
     )}
   />
 )
+
+export default NativeColorPicker
