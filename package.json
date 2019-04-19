@@ -1,6 +1,6 @@
 {
   "name": "native-color-picker",
-  "version": "1.0.0-beta.3",
+  "version": "1.0.0-beta.3.2",
   "description": "Color picker for React Native",
   "author": "Jakub Biesiada",
   "license": "MIT",
@@ -31,11 +31,12 @@
   "homepage": "https://github.com/JB1905/native-color-picker#readme",
   "dependencies": {
     "color": "^3.1.0",
-    "color-sort": "^0.0.1"
+    "color-sort": "^0.0.1",
+    "styled-components": "^4.2.0"
   },
   "devDependencies": {
     "@types/color": "^3.0.0",
-    "@types/expo": "^32.0.10",
+    "@types/expo": "^32.0.11",
     "@types/expo__vector-icons": "^9.0.1",
     "@types/react": "^16.8.13",
     "@types/styled-components": "^4.1.14",
@@ -48,15 +49,13 @@
     "expo": "^32.0.6",
     "prettier": "^1.17.0",
     "react": "^16.8.6",
-    "styled-components": "^4.2.0",
     "ts-loader": "^5.3.3",
-    "typescript": "^3.4.3",
+    "typescript": "^3.4.4",
     "webpack": "^4.30.0",
     "webpack-cli": "^3.3.0"
   },
   "peerDependencies": {
     "expo": ">=30.0.0",
-    "react": ">=16.3.0",
-    "styled-components": ">=4.1.0"
+    "react": ">=16.3.0"
   }
 }
