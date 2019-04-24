@@ -4,7 +4,7 @@
 [![NPM downloads](http://img.shields.io/npm/dm/native-color-picker.svg?style=flat-square)](https://www.npmjs.com/package/native-color-picker)
 
 <p align="center">
-  <img width="420" src="https://github.com/JB1905/native-color-picker/blob/master/assets/preview.jpg">
+  <img width="420" src="https://raw.githubusercontent.com/JB1905/native-color-picker/master/assets/preview.jpg">
 </p>
 
 ## About
