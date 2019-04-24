@@ -3,6 +3,10 @@
 [![NPM version](http://img.shields.io/npm/v/native-color-picker.svg?style=flat-square)](https://www.npmjs.com/package/native-color-picker)
 [![NPM downloads](http://img.shields.io/npm/dm/native-color-picker.svg?style=flat-square)](https://www.npmjs.com/package/native-color-picker)
 
+<p align="center">
+  <img width="420" src="https://github.com/JB1905/native-color-picker/blob/master/assets/preview.jpg">
+</p>
+
 ## About
 React Native color picker component
 
