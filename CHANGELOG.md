@@ -1,5 +1,15 @@
 # NativeColorPicker Changelog
 
+## 1.0.0 beta 3.3 (2019-04-24)
+#### Documentation
+- added preview image to README.md
+
+#### Breaking Changes
+- dropped support for Expo < 31.0.0
+
+#### Repository Changes
+- updated dependencies
+
 ## 1.0.0 beta 3 (2019-04-14)
 #### Breaking Changes
 - `NativeColorCards` component is now default export
