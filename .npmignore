@@ -1,4 +1,5 @@
 src
+assets
 
 tsconfig.json
 .travis.yml
