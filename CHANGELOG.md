@@ -1,6 +1,6 @@
 # NativeColorPicker Changelog
 
-## 1.0.0 beta 3.4 (2019-04-24)
+## 1.0.0 beta 3.4 / 1.0.0 (2019-04-24)
 #### Documentation
 - added preview image to README.md
 
