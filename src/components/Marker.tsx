@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Animated } from 'react-native'
 import styled from 'styled-components/native'
 import { Ionicons } from '@expo/vector-icons'
@@ -62,22 +62,20 @@ export const Marker = ({
     color = markerStyle
   }
 
-  useEffect(() => {
-    Animated.timing(scaleValue, {
-      toValue: 1,
-      duration: 300,
-    }).start()
+  Animated.timing(scaleValue, {
+    toValue: 1,
+    duration: 300,
+  }).start()
 
-    Animated.timing(rotateValue, {
-      toValue: 0,
-      duration: 300,
-    }).start()
+  Animated.timing(rotateValue, {
+    toValue: 0,
+    duration: 300,
+  }).start()
 
-    Animated.timing(fadeValue, {
-      toValue: 1,
-      duration: 300,
-    }).start()
-  }, [])
+  Animated.timing(fadeValue, {
+    toValue: 1,
+    duration: 300,
+  }).start()
 
   return (
     <Base>

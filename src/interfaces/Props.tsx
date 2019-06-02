@@ -1,14 +1,16 @@
 import { FlatListProps } from 'react-native'
 
+import { Animate, Marker, MarkerStyle } from '../types'
+
 export interface Props extends FlatListProps<string> {
-  readonly animate?: 'scale' | 'rotate'
+  readonly animate?: Animate
   readonly colors: string[]
   readonly columns?: number
   readonly gradient?: boolean
   readonly horizontal?: boolean
   readonly itemSize?: number
-  readonly marker?: 'border' | 'checkmark' | 'fade' | 'none'
-  readonly markerStyle?: 'adjust' | 'contrast' | string
+  readonly marker?: Marker
+  readonly markerStyle?: MarkerStyle
   readonly onSelect?: (item: string) => void
   readonly selectedColor?: string
   readonly shadow?: boolean
