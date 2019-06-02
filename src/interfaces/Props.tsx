@@ -1,6 +1,7 @@
 import { FlatListProps } from 'react-native'
 
 export interface Props extends FlatListProps<string> {
+  readonly animate?: 'scale' | 'rotate'
   readonly colors: string[]
   readonly columns?: number
   readonly gradient?: boolean

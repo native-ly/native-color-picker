@@ -12,6 +12,7 @@ import { Gradient } from './components/Gradient'
 import { lighter, darker } from './helpers'
 
 const NativeColorPicker = ({
+  animate,
   colors = [],
   columns = 5,
   gradient = false,
@@ -40,6 +41,7 @@ const NativeColorPicker = ({
       >
         {selectedColor === item && (
           <Marker
+            animate={animate}
             color={item}
             markerStyle={markerStyle}
             size={itemSize}
