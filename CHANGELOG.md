@@ -1,5 +1,12 @@
 # NativeColorPicker Changelog
 
+## 1.1.0 (Soon)
+#### New Feature
+- added `animate` option
+
+#### Breaking Changes
+- dropped support for Expo < 33.0.0
+
 ## 1.0.0 beta 3.4 / 1.0.0 (2019-04-24)
 #### Documentation
 - added preview image to README.md

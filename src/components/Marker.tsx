@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import { Animated, Easing } from 'react-native'
+import React, { useEffect } from 'react'
+import { Animated } from 'react-native'
 import styled from 'styled-components/native'
 import { Ionicons } from '@expo/vector-icons'
 import Color from 'color'
@@ -20,7 +20,10 @@ const BorderMarker = styled.View<{ color: string; size: number }>`
   ${mixin}
 
   ${({ color, size }) => `
-    margin: ${countSize(size)}px;
+    width: ${size - 4}px;
+    height: ${size - 4}px;
+    margin-top: -${size / 2 - 2}px; 
+    margin-left: -${size / 2 - 2}px; 
     border-radius: ${(size - 2 * countSize(size)) / 2}px;
     border: ${countSize(size)}px solid ${color};
   `}
@@ -32,6 +35,10 @@ const FadeMarker = styled.View<{ size: number }>`
   background-color: #fff8;
 
   ${({ size }) => `
+  margin-top: -${size / 2}px; 
+  margin-left: -${size / 2}px; 
+  width: ${size}px;
+  height: ${size}px;
     border-radius: ${size / 2}px;
   `}
 `
@@ -76,10 +83,15 @@ export const Marker = ({
     <Base>
       <Animated.View
         style={{
-          opacity: animate ? fadeValue : 1,
+          opacity:
+            animate && (type === 'checkmark' || type === 'border')
+              ? fadeValue
+              : 1,
           transform: [
-            animate === 'scale' ? { scale: scaleValue } : { scale: 1 },
-            animate === 'rotate'
+            animate === 'scale' && (type === 'checkmark' || type === 'border')
+              ? { scale: scaleValue }
+              : { scale: 1 },
+            animate === 'rotate' && type === 'checkmark'
               ? {
                   rotate: rotateValue.interpolate({
                     inputRange: [0, 1],
