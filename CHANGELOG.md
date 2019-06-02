@@ -1,6 +1,5 @@
 # NativeColorPicker Changelog
 
-## 1.1.0 (Soon)
 ## 1.1.0 beta 1 (2019-06-03)
 #### New Feature
 - added `animate` option
