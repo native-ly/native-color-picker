@@ -35,10 +35,10 @@ const FadeMarker = styled.View<{ size: number }>`
   background-color: #fff8;
 
   ${({ size }) => `
-    margin-top: -${size / 2}px; 
-    margin-left: -${size / 2}px; 
     width: ${size}px;
     height: ${size}px;
+    margin-top: -${size / 2}px; 
+    margin-left: -${size / 2}px; 
     border-radius: ${size / 2}px;
   `}
 `

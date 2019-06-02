@@ -1,5 +1,5 @@
-import { LinearGradient } from 'expo'
+import { LinearGradientProps } from 'expo'
 
-export interface Gradient extends LinearGradient {
+export interface Gradient extends LinearGradientProps {
   readonly size: number
 }
