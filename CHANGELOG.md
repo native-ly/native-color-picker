@@ -4,6 +4,9 @@
 #### New Feature
 - added `animate` option
 
+#### Change
+- switched from `expo` to `expo-linear-gradient`
+
 #### Breaking Changes
 - dropped support for Expo < 33.0.0
 

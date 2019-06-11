@@ -62,42 +62,55 @@ export const Marker = ({
     color = markerStyle
   }
 
-  Animated.timing(scaleValue, {
-    toValue: 1,
-    duration: 300,
-  }).start()
+  const opacity = () => {
+    Animated.timing(scaleValue, {
+      toValue: 1,
+      duration: 300,
+    }).start()
 
-  Animated.timing(rotateValue, {
-    toValue: 0,
-    duration: 300,
-  }).start()
+    const check = animate && (type === 'checkmark' || type === 'border')
 
-  Animated.timing(fadeValue, {
-    toValue: 1,
-    duration: 300,
-  }).start()
+    return check ? fadeValue : 1
+  }
+
+  const scale = () => {
+    Animated.timing(rotateValue, {
+      toValue: 0,
+      duration: 300,
+    }).start()
+
+    const check =
+      animate === 'scale' && (type === 'checkmark' || type === 'border')
+
+    return {
+      scale: check ? scaleValue : 1,
+    }
+  }
+
+  const rotate = () => {
+    Animated.timing(fadeValue, {
+      toValue: 1,
+      duration: 300,
+    }).start()
+
+    const check = animate === 'rotate' && type === 'checkmark'
+
+    return {
+      rotate: check
+        ? rotateValue.interpolate({
+            inputRange: [0, 1],
+            outputRange: ['0deg', '80deg'],
+          })
+        : '0deg',
+    }
+  }
 
   return (
     <Base>
       <Animated.View
         style={{
-          opacity:
-            animate && (type === 'checkmark' || type === 'border')
-              ? fadeValue
-              : 1,
-          transform: [
-            animate === 'scale' && (type === 'checkmark' || type === 'border')
-              ? { scale: scaleValue }
-              : { scale: 1 },
-            animate === 'rotate' && type === 'checkmark'
-              ? {
-                  rotate: rotateValue.interpolate({
-                    inputRange: [0, 1],
-                    outputRange: ['0deg', '80deg'],
-                  }),
-                }
-              : { rotate: '0deg' },
-          ],
+          opacity: opacity(),
+          transform: [scale(), rotate()],
         }}
       >
         {type === 'border' ? (
