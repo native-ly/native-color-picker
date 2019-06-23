@@ -30,6 +30,7 @@ import NativeColorPicker from 'native-color-picker';
 ## Options
 Name | Type | Default | Description | Available options
 -|-|-|-|-
+**animate** | string | ` ` | Animate marker on item select | `scale` or `rotate`
 **colors** | string[] | `[]` | Colors to display in a color picker | e.g.: `['#f96204', '#43d8c9']`
 **columns** | number | `5` | Number of columns in color list (only vertical) | Number of columns
 **gradient** | boolean | `false` | Enable or disable gradient layer over the color item | `true` - enable, `false` - disable

@@ -19,7 +19,7 @@ module.exports = env => {
     externals: [
       'color',
       'color-sort',
-      'expo',
+      'expo-linear-gradient',
       '@expo/vector-icons',
       'react',
       'react-native',

@@ -1,5 +1,5 @@
 import styled from 'styled-components/native'
-import { LinearGradient } from 'expo'
+import { LinearGradient } from 'expo-linear-gradient'
 
 import { Gradient as GradientProps } from '../interfaces'
 
