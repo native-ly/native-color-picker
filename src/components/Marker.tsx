@@ -68,9 +68,9 @@ export const Marker = ({
       duration: 300,
     }).start()
 
-    const check = animate && (type === 'checkmark' || type === 'border')
-
-    return check ? fadeValue : 1
+    return animate && (type === 'checkmark' || type === 'border')
+      ? fadeValue
+      : 1
   }
 
   const scale = () => {
@@ -79,11 +79,11 @@ export const Marker = ({
       duration: 300,
     }).start()
 
-    const check =
-      animate === 'scale' && (type === 'checkmark' || type === 'border')
-
     return {
-      scale: check ? scaleValue : 1,
+      scale:
+        animate === 'scale' && (type === 'checkmark' || type === 'border')
+          ? scaleValue
+          : 1,
     }
   }
 
@@ -93,15 +93,14 @@ export const Marker = ({
       duration: 300,
     }).start()
 
-    const check = animate === 'rotate' && type === 'checkmark'
-
     return {
-      rotate: check
-        ? rotateValue.interpolate({
-            inputRange: [0, 1],
-            outputRange: ['0deg', '80deg'],
-          })
-        : '0deg',
+      rotate:
+        animate === 'rotate' && type === 'checkmark'
+          ? rotateValue.interpolate({
+              inputRange: [0, 1],
+              outputRange: ['0deg', '80deg'],
+            })
+          : '0deg',
     }
   }
 
