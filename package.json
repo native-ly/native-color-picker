@@ -12,7 +12,9 @@
     "watch": "npm run build -- --watch",
     "watch:dev": "npm run build:dev -- --watch",
     "lint": "eslint --fix 'src/**/*.tsx'",
-    "prettier": "prettier --write 'src/**/*.tsx'"
+    "prettier": "prettier --write 'src/**/*.tsx'",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -32,7 +34,8 @@
   "dependencies": {
     "color": "^3.1.2",
     "color-sort": "^0.0.1",
-    "styled-components": "^4.3.2"
+    "styled-components": "^4.3.2",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "@types/color": "^3.0.0",
@@ -71,5 +74,6 @@
       "npm run lint",
       "git add"
     ]
-  }
+  },
+  "snyk": true
 }
