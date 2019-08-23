@@ -25,7 +25,7 @@ const NativeColorPicker = ({
   shadow = false,
   sort = false,
   ...props
-}: Props): JSX.Element => (
+}: Props) => (
   <FlatList
     {...props}
     data={sort ? colorSort(colors) : colors}
