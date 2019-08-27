@@ -1,5 +1,9 @@
 # NativeColorPicker Changelog
 
+## 1.2.0 (2019-08-27)
+#### Repository Changes
+- added type definitions to output files
+
 ## 1.1.0 beta 1 / 1.1.0 (2019-06-03)
 #### New Feature
 - added `animate` option
