@@ -1,6 +1,6 @@
 import Color from 'color'
 
-export const checkColor = (item: string): string => {
+export const checkColor = (item: string) => {
   return Color(item).isDark()
     ? Color(item)
         .lighten(0.5)

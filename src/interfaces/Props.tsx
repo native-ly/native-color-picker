@@ -15,4 +15,5 @@ export interface Props extends FlatListProps<string> {
   readonly selectedColor?: string
   readonly shadow?: boolean
   readonly sort?: boolean
+  readonly [key: string]: any
 }
