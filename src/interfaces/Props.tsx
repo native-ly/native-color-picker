@@ -2,7 +2,8 @@ import { FlatListProps } from 'react-native'
 
 import { Animate, Marker, MarkerStyle } from '../types'
 
-export interface Props extends FlatListProps<string> {
+export interface Props
+  extends Omit<FlatListProps<string>, 'data' | 'renderItem'> {
   readonly animate?: Animate
   readonly colors: string[]
   readonly columns?: number
