@@ -1,2 +1,3 @@
-import { Marker as MarkerProps } from '../interfaces';
-export declare const Marker: ({ animate, color, size, markerStyle, type, }: MarkerProps) => JSX.Element;
+/// <reference types="react" />
+import { MarkerProps } from '../interfaces';
+export declare const Marker: ({ animate, color, size, display, type, }: MarkerProps) => JSX.Element;

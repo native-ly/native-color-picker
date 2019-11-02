@@ -1,3 +1,3 @@
-import { LinearGradient } from 'expo-linear-gradient';
-import { Gradient as GradientProps } from '../interfaces';
-export declare const Gradient: import("styled-components").StyledComponent<typeof LinearGradient, any, GradientProps, never>;
+/// <reference types="react" />
+import { GradientProps } from '../interfaces';
+export declare const Gradient: ({ colors, style, size }: GradientProps) => JSX.Element;

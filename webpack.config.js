@@ -23,7 +23,6 @@ module.exports = env => {
       'react',
       'react-native',
       'react-native-vector-icons/Ionicons',
-      'styled-components/native',
     ],
     devtool,
     output: {

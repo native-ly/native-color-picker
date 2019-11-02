@@ -1,3 +1,4 @@
 export { Animate } from './Animate'
-export { Marker } from './Marker'
-export { MarkerStyle } from './MarkerStyle'
+export { MarkerType } from './MarkerType'
+export { MarkerDisplay } from './MarkerDisplay'
+export { Children } from './Children'

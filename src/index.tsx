@@ -5,9 +5,7 @@ import Color from 'color'
 
 import { Props } from './interfaces'
 
-import { Item } from './components/Item'
-import { Marker } from './components/Marker'
-import { Gradient } from './components/Gradient'
+import { Item, Marker, Gradient } from './components'
 
 import { lighter, darker } from './helpers'
 
@@ -18,12 +16,16 @@ const NativeColorPicker = ({
   gradient = false,
   horizontal = false,
   itemSize = 44,
-  marker = 'border',
-  markerStyle = 'contrast',
+  markerType = 'border',
+  markerDisplay = 'contrast',
   onSelect = item => item,
   selectedColor,
   shadow = false,
   sort = false,
+  itemProps,
+  itemStyle,
+  linearGradientProps,
+  linearGradientStyle,
   ...props
 }: Props) => (
   <FlatList
@@ -34,27 +36,33 @@ const NativeColorPicker = ({
     numColumns={horizontal ? 1 : columns}
     renderItem={({ item }: { item: string }) => (
       <Item
+        {...itemProps}
+        style={itemStyle}
         color={item}
         itemSize={itemSize}
         onPress={() => onSelect(item)}
         shadow={shadow}
       >
-        {selectedColor === item && (
-          <Marker
-            animate={animate}
-            color={item}
-            markerStyle={markerStyle}
-            size={itemSize}
-            type={marker}
-          />
-        )}
+        {selectedColor === item &&
+          ((
+            <Marker
+              color={item}
+              animate={animate}
+              type={markerType}
+              display={markerDisplay}
+              size={itemSize}
+            />
+          ) as any)}
 
-        {gradient && (
-          <Gradient
-            colors={Color(item).isDark() ? darker(item) : lighter(item)}
-            size={itemSize}
-          />
-        )}
+        {gradient &&
+          ((
+            <Gradient
+              {...linearGradientProps}
+              style={linearGradientStyle}
+              colors={Color(item).isDark() ? darker(item) : lighter(item)}
+              size={itemSize}
+            />
+          ) as any)}
       </Item>
     )}
   />

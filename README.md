@@ -36,8 +36,8 @@ Name | Type | Default | Description | Available options
 **gradient** | boolean | `false` | Enable or disable gradient layer over the color item | `true` - enable, `false` - disable
 **horizontal** | boolean | `false` | Enable or disable horizontal scroll direction | `true` - horizontal, `false` - vertical
 **itemSize** | number | `44` | Size (`width` & `height`) of list item | Size of list item
-**marker** | string | `border` | Type of marker for selected item | `border`, `checkmark`, `fade`, `none`
-**markerStyle** | string | `contrast` | Color style of marker | `adjust`, `contrast` or color
+**markerType** | string | `border` | Type of marker for selected item | `border`, `checkmark`, `fade`, `none`
+**markerDisplay** | string | `contrast` | Color style of marker | `adjust`, `contrast` or color
 **onSelect** | function | `item => item` | Select color item | e.g.: `elem => { /* code */ }`
 **selectedColor** | string | ` ` | Marked item | Color from the list `colors`
 **shadow** | boolean | `false` | Display shadow for list items | `true` - enable, `false` - disable
