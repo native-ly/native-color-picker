@@ -1,6 +1,6 @@
 # NativeColorPicker Changelog
 
-## 1.3.0 beta 3 (Soon)
+## 1.3.0 beta 3 (2019-10-02)
 #### Breaking Changes
 - renamed `marker` to `markerType`
 - renamed `markerStyle` to `markerDisplay`
