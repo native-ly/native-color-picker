@@ -38,7 +38,7 @@ module.exports = env => {
           loader: 'ts-loader',
           exclude: /node_modules/,
           resolve: {
-            extensions: ['.tsx'],
+            extensions: ['.tsx', '.ts'],
           },
         },
       ],
