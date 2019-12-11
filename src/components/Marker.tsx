@@ -1,65 +1,73 @@
 import React from 'react'
-import { Animated } from 'react-native'
-import styled from 'styled-components/native'
-import { Ionicons } from '@expo/vector-icons'
+import { View, Animated, StyleSheet } from 'react-native'
+import Ionicons from 'react-native-vector-icons/Ionicons'
 import Color from 'color'
 
-import { Marker as MarkerProps } from '../interfaces'
+import { MarkerProps } from '../interfaces'
 
-import { mixin, checkColor, countSize } from '../helpers'
+import { Children } from '../types'
 
-const Base = styled.View`
-  ${mixin}
+import { checkColor, countSize } from '../helpers'
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`
+const Base = ({ children }: { children: Children }) => (
+  <View
+    style={{
+      ...StyleSheet.absoluteFillObject,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+    }}
+  >
+    {children}
+  </View>
+)
 
-const BorderMarker = styled.View<{ color: string; size: number }>`
-  ${mixin}
+const BorderMarker = ({ size, color }: { size: number; color: string }) => (
+  <View
+    style={{
+      ...StyleSheet.absoluteFillObject,
+      width: size - 4,
+      height: size - 4,
+      marginTop: -(size / 2 - 2),
+      marginLeft: -(size / 2 - 2),
+      borderRadius: (size - 2 * countSize(size)) / 2,
+      borderWidth: countSize(size),
+      borderColor: color,
+    }}
+  />
+)
 
-  ${({ color, size }) => `
-    width: ${size - 4}px;
-    height: ${size - 4}px;
-    margin-top: -${size / 2 - 2}px; 
-    margin-left: -${size / 2 - 2}px; 
-    border-radius: ${(size - 2 * countSize(size)) / 2}px;
-    border: ${countSize(size)}px solid ${color};
-  `}
-`
-
-const FadeMarker = styled.View<{ size: number }>`
-  ${mixin}
-
-  background-color: #fff8;
-
-  ${({ size }) => `
-    width: ${size}px;
-    height: ${size}px;
-    margin-top: -${size / 2}px; 
-    margin-left: -${size / 2}px; 
-    border-radius: ${size / 2}px;
-  `}
-`
+const FadeMarker = ({ size }: { size: number }) => (
+  <View
+    style={{
+      ...StyleSheet.absoluteFillObject,
+      backgroundColor: '#fff8',
+      width: size,
+      height: size,
+      marginTop: -(size / 2),
+      marginLeft: -(size / 2),
+      borderRadius: size / 2,
+    }}
+  />
+)
 
 export const Marker = ({
   animate,
   color,
   size,
-  markerStyle,
+  display,
   type,
-}: MarkerProps): JSX.Element => {
+}: MarkerProps) => {
   const scaleValue = new Animated.Value(0)
   const rotateValue = new Animated.Value(1)
   const fadeValue = new Animated.Value(0)
 
-  if (markerStyle === 'adjust') {
+  if (display === 'adjust') {
     color = checkColor(color)
-  } else if (markerStyle === 'contrast') {
+  } else if (display === 'contrast') {
     color = Color(color).isDark() ? '#fff' : '#000'
   } else {
-    color = markerStyle
+    color = display
   }
 
   const opacity = () => {
@@ -113,9 +121,9 @@ export const Marker = ({
         }}
       >
         {type === 'border' ? (
-          <BorderMarker color={color} size={size} />
+          <BorderMarker size={size} color={color} />
         ) : type === 'checkmark' ? (
-          <Ionicons color={color} name="md-checkmark" size={(size / 3) * 2} />
+          <Ionicons name="md-checkmark" size={(size / 3) * 2} color={color} />
         ) : (
           type === 'fade' && <FadeMarker size={size} />
         )}

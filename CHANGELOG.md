@@ -1,5 +1,19 @@
 # NativeColorPicker Changelog
 
+## 1.3.0 beta 3 / 1.3.0 beta 4 / 1.3.0 beta 5 / 1.3.0 (2019-11-02)
+#### Breaking Changes
+- renamed `marker` to `markerType`
+- renamed `markerStyle` to `markerDisplay`
+
+#### New Feature
+- added `itemProps`, `itemStyle`, `linearGradientProps`, `linearGradientStyle` props
+
+#### Change
+- removed `styled-components`
+
+#### Bug Fix
+- fixed shadow option on Android devices
+
 ## 1.2.0 (2019-08-27)
 #### Repository Changes
 - added type definitions to output files

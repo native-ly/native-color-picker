@@ -1,16 +1,19 @@
-import styled from 'styled-components/native'
+import React from 'react'
+import { StyleSheet } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
 
-import { Gradient as GradientProps } from '../interfaces'
+import { GradientProps } from '../interfaces'
 
-import { mixin } from '../helpers'
-
-export const Gradient = styled(LinearGradient)`
-  ${mixin}
-
-  z-index: -1;
-
-  ${({ size }: GradientProps) => `
-    border-radius: ${size / 2}px;
-  `}
-`
+export const Gradient = ({ colors, style, size }: GradientProps) => (
+  <LinearGradient
+    colors={colors}
+    style={StyleSheet.flatten([
+      style,
+      {
+        ...StyleSheet.absoluteFillObject,
+        borderRadius: size / 2,
+        zIndex: -1,
+      },
+    ])}
+  />
+)

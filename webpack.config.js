@@ -20,10 +20,9 @@ module.exports = env => {
       'color',
       'color-sort',
       'expo-linear-gradient',
-      '@expo/vector-icons',
       'react',
       'react-native',
-      'styled-components/native',
+      'react-native-vector-icons/Ionicons',
     ],
     devtool,
     output: {
@@ -39,7 +38,7 @@ module.exports = env => {
           loader: 'ts-loader',
           exclude: /node_modules/,
           resolve: {
-            extensions: ['.tsx'],
+            extensions: ['.tsx', '.ts'],
           },
         },
       ],
