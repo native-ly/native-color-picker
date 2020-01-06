@@ -9,4 +9,3 @@ tsconfig.json
 /index.d.ts
 webpack.config.js
 yarn-error.log
-.DS_Store
