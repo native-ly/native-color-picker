@@ -19,7 +19,13 @@
     "type": "git",
     "url": "https://github.com/JB1905/native-color-picker.git"
   },
-  "keywords": ["TypeScript", "React", "React Native", "colors", "picker"],
+  "keywords": [
+    "TypeScript",
+    "React",
+    "React Native",
+    "colors",
+    "picker"
+  ],
   "bugs": {
     "url": "https://github.com/JB1905/native-color-picker/issues"
   },
@@ -60,6 +66,10 @@
     }
   },
   "lint-staged": {
-    "src/**/*.{tsx,ts}": ["npm run prettier", "npm run lint", "git add"]
+    "src/**/*.{tsx,ts}": [
+      "npm run prettier",
+      "npm run lint",
+      "git add"
+    ]
   }
 }
