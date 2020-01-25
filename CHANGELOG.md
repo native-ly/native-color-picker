@@ -1,5 +1,10 @@
 # NativeColorPicker Changelog
 
+## 1.3.1 (2020-01-25)
+#### Repository Changes
+- replaced `Webpack` with `Rollup`
+- added module output
+
 ## 1.3.0 beta 3 / 1.3.0 beta 4 / 1.3.0 beta 5 / 1.3.0 (2019-11-02)
 #### Breaking Changes
 - renamed `marker` to `markerType`
