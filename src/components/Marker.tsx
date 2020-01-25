@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, Animated, StyleSheet } from 'react-native'
-import Ionicons from 'react-native-vector-icons/Ionicons'
+import Icon from 'react-native-vector-icons/Ionicons'
 import Color from 'color'
 
 import { MarkerProps } from '../interfaces'
@@ -123,7 +123,7 @@ export const Marker = ({
         {type === 'border' ? (
           <BorderMarker size={size} color={color} />
         ) : type === 'checkmark' ? (
-          <Ionicons name="md-checkmark" size={(size / 3) * 2} color={color} />
+          <Icon name="md-checkmark" size={(size / 3) * 2} color={color} />
         ) : (
           type === 'fade' && <FadeMarker size={size} />
         )}
