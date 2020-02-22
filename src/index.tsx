@@ -43,8 +43,8 @@ const NativeColorPicker = ({
         onPress={() => onSelect(item)}
         shadow={shadow}
       >
-        {selectedColor === item &&
-          ((
+        <>
+          {selectedColor === item && (
             <Marker
               color={item}
               animate={animate}
@@ -52,17 +52,19 @@ const NativeColorPicker = ({
               display={markerDisplay}
               size={itemSize}
             />
-          ) as any)}
+          )}
+        </>
 
-        {gradient &&
-          ((
+        <>
+          {gradient && (
             <Gradient
               {...linearGradientProps}
               style={linearGradientStyle}
               colors={Color(item).isDark() ? darker(item) : lighter(item)}
               size={itemSize}
             />
-          ) as any)}
+          )}
+        </>
       </Item>
     )}
   />
