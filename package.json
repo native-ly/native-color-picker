@@ -1,7 +1,7 @@
 {
   "name": "native-color-picker",
   "version": "1.3.1",
-  "description": "Color picker for React Native",
+  "description": "Color picker for React Native (Expo projects only)",
   "author": "Jakub Biesiada",
   "license": "MIT",
   "main": "lib/native-color-picker.cjs.js",
