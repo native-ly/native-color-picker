@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { FunctionComponent } from 'react'
 import { StyleSheet } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
 
 import { GradientProps } from '../interfaces'
 
-export const Gradient = ({ colors, style, size }: GradientProps) => (
+export const Gradient: FunctionComponent<GradientProps> = ({
+  colors,
+  style,
+  size,
+}) => (
   <LinearGradient
     colors={colors}
     style={StyleSheet.flatten([

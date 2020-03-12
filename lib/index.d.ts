@@ -1,4 +1,4 @@
-/// <reference types="react" />
+import { FunctionComponent } from 'react';
 import { Props } from './interfaces';
-declare const NativeColorPicker: ({ animate, colors, columns, gradient, horizontal, itemSize, markerType, markerDisplay, onSelect, selectedColor, shadow, sort, itemProps, itemStyle, linearGradientProps, linearGradientStyle, ...props }: Props) => JSX.Element;
+declare const NativeColorPicker: FunctionComponent<Props>;
 export default NativeColorPicker;

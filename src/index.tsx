@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FunctionComponent } from 'react'
 import { FlatList } from 'react-native'
 import colorSort from 'color-sort'
 import Color from 'color'
@@ -9,7 +9,7 @@ import { Item, Marker, Gradient } from './components'
 
 import { lighter, darker } from './helpers'
 
-const NativeColorPicker = ({
+const NativeColorPicker: FunctionComponent<Props> = ({
   animate,
   colors = [],
   columns = 5,
@@ -27,7 +27,7 @@ const NativeColorPicker = ({
   linearGradientProps,
   linearGradientStyle,
   ...props
-}: Props) => (
+}) => (
   <FlatList
     {...props}
     data={sort ? colorSort(colors) : colors}
@@ -43,28 +43,24 @@ const NativeColorPicker = ({
         onPress={() => onSelect(item)}
         shadow={shadow}
       >
-        <>
-          {selectedColor === item && (
-            <Marker
-              color={item}
-              animate={animate}
-              type={markerType}
-              display={markerDisplay}
-              size={itemSize}
-            />
-          )}
-        </>
+        {selectedColor === item && (
+          <Marker
+            color={item}
+            animate={animate}
+            type={markerType}
+            display={markerDisplay}
+            size={itemSize}
+          />
+        )}
 
-        <>
-          {gradient && (
-            <Gradient
-              {...linearGradientProps}
-              style={linearGradientStyle}
-              colors={Color(item).isDark() ? darker(item) : lighter(item)}
-              size={itemSize}
-            />
-          )}
-        </>
+        {gradient && (
+          <Gradient
+            {...linearGradientProps}
+            style={linearGradientStyle}
+            colors={Color(item).isDark() ? darker(item) : lighter(item)}
+            size={itemSize}
+          />
+        )}
       </Item>
     )}
   />

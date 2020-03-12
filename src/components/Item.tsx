@@ -1,16 +1,16 @@
-import React from 'react'
+import React, { FunctionComponent } from 'react'
 import { TouchableOpacity, StyleSheet } from 'react-native'
 
 import { ItemProps } from '../interfaces'
 
-export const Item = ({
+export const Item: FunctionComponent<ItemProps> = ({
   children,
   style,
   color,
   itemSize,
   shadow,
   ...props
-}: ItemProps) => (
+}) => (
   <TouchableOpacity
     {...props}
     style={StyleSheet.flatten([

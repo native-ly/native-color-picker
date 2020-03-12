@@ -1,15 +1,13 @@
-import React from 'react'
+import React, { FunctionComponent } from 'react'
 import { View, Animated, StyleSheet } from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons'
 import Color from 'color'
 
 import { MarkerProps } from '../interfaces'
 
-import { Children } from '../types'
-
 import { checkColor, countSize } from '../helpers'
 
-const Base = ({ children }: { children: Children }) => (
+const Base: FunctionComponent = ({ children }) => (
   <View
     style={{
       ...StyleSheet.absoluteFillObject,
@@ -22,7 +20,10 @@ const Base = ({ children }: { children: Children }) => (
   </View>
 )
 
-const BorderMarker = ({ size, color }: { size: number; color: string }) => (
+const BorderMarker: FunctionComponent<{ size: number; color: string }> = ({
+  size,
+  color,
+}) => (
   <View
     style={{
       ...StyleSheet.absoluteFillObject,
@@ -37,7 +38,7 @@ const BorderMarker = ({ size, color }: { size: number; color: string }) => (
   />
 )
 
-const FadeMarker = ({ size }: { size: number }) => (
+const FadeMarker: FunctionComponent<{ size: number }> = ({ size }) => (
   <View
     style={{
       ...StyleSheet.absoluteFillObject,
@@ -51,13 +52,13 @@ const FadeMarker = ({ size }: { size: number }) => (
   />
 )
 
-export const Marker = ({
+export const Marker: FunctionComponent<MarkerProps> = ({
   animate,
   color,
   size,
   display,
   type,
-}: MarkerProps) => {
+}) => {
   const scaleValue = new Animated.Value(0)
   const rotateValue = new Animated.Value(1)
   const fadeValue = new Animated.Value(0)

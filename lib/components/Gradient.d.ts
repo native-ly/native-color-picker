@@ -1,3 +1,3 @@
-/// <reference types="react" />
+import { FunctionComponent } from 'react';
 import { GradientProps } from '../interfaces';
-export declare const Gradient: ({ colors, style, size }: GradientProps) => JSX.Element;
+export declare const Gradient: FunctionComponent<GradientProps>;

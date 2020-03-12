@@ -1,3 +1,3 @@
-/// <reference types="react" />
+import { FunctionComponent } from 'react';
 import { ItemProps } from '../interfaces';
-export declare const Item: ({ children, style, color, itemSize, shadow, ...props }: ItemProps) => JSX.Element;
+export declare const Item: FunctionComponent<ItemProps>;
