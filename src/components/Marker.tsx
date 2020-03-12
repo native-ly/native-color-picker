@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react'
+import React from 'react'
 import { View, Animated, StyleSheet } from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons'
 import Color from 'color'
@@ -7,7 +7,7 @@ import { MarkerProps } from '../interfaces'
 
 import { checkColor, countSize } from '../helpers'
 
-const Base: FunctionComponent = ({ children }) => (
+const Base: React.FC = ({ children }) => (
   <View
     style={{
       ...StyleSheet.absoluteFillObject,
@@ -20,7 +20,7 @@ const Base: FunctionComponent = ({ children }) => (
   </View>
 )
 
-const BorderMarker: FunctionComponent<{ size: number; color: string }> = ({
+const BorderMarker: React.FC<{ size: number; color: string }> = ({
   size,
   color,
 }) => (
@@ -38,7 +38,7 @@ const BorderMarker: FunctionComponent<{ size: number; color: string }> = ({
   />
 )
 
-const FadeMarker: FunctionComponent<{ size: number }> = ({ size }) => (
+const FadeMarker: React.FC<{ size: number }> = ({ size }) => (
   <View
     style={{
       ...StyleSheet.absoluteFillObject,
@@ -52,7 +52,7 @@ const FadeMarker: FunctionComponent<{ size: number }> = ({ size }) => (
   />
 )
 
-export const Marker: FunctionComponent<MarkerProps> = ({
+export const Marker: React.FC<MarkerProps> = ({
   animate,
   color,
   size,

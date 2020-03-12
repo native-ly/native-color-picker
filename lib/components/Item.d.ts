@@ -1,3 +1,3 @@
-import { FunctionComponent } from 'react';
+import React from 'react';
 import { ItemProps } from '../interfaces';
-export declare const Item: FunctionComponent<ItemProps>;
+export declare const Item: React.FC<ItemProps>;

@@ -1,6 +1,6 @@
 # NativeColorPicker Changelog
 
-## 1.3.3 (2020-03-12)
+## 1.3.3 / 1.3.4 (2020-03-12)
 #### Change
 - updated types
 

@@ -1,3 +1,3 @@
-import { FunctionComponent } from 'react';
+import React from 'react';
 import { MarkerProps } from '../interfaces';
-export declare const Marker: FunctionComponent<MarkerProps>;
+export declare const Marker: React.FC<MarkerProps>;

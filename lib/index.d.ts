@@ -1,4 +1,4 @@
-import { FunctionComponent } from 'react';
+import React from 'react';
 import { Props } from './interfaces';
-declare const NativeColorPicker: FunctionComponent<Props>;
+declare const NativeColorPicker: React.FC<Props>;
 export default NativeColorPicker;

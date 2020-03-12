@@ -1,9 +1,9 @@
-import React, { FunctionComponent } from 'react'
+import React from 'react'
 import { TouchableOpacity, StyleSheet } from 'react-native'
 
 import { ItemProps } from '../interfaces'
 
-export const Item: FunctionComponent<ItemProps> = ({
+export const Item: React.FC<ItemProps> = ({
   children,
   style,
   color,

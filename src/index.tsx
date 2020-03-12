@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react'
+import React from 'react'
 import { FlatList } from 'react-native'
 import colorSort from 'color-sort'
 import Color from 'color'
@@ -9,7 +9,7 @@ import { Item, Marker, Gradient } from './components'
 
 import { lighter, darker } from './helpers'
 
-const NativeColorPicker: FunctionComponent<Props> = ({
+const NativeColorPicker: React.FC<Props> = ({
   animate,
   colors = [],
   columns = 5,
