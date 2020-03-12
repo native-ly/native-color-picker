@@ -1,5 +1,9 @@
 # NativeColorPicker Changelog
 
+## 1.3.2 (2020-03-12)
+#### Documentation
+- updated README.md
+
 ## 1.3.1 (2020-01-25)
 #### Repository Changes
 - replaced `Webpack` with `Rollup`
