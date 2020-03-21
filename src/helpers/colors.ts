@@ -8,16 +8,10 @@ export const checkColor = (item: string) => {
 
 export const darker = (item: string): string[] => [
   'transparent',
-  Color(item)
-    .darken(0.5)
-    .alpha(0.6)
-    .toString(),
+  Color(item).darken(0.5).alpha(0.6).toString(),
 ]
 
 export const lighter = (item: string): string[] => [
-  Color(item)
-    .lighten(0.5)
-    .alpha(0.6)
-    .toString(),
+  Color(item).lighten(0.5).alpha(0.6).toString(),
   'transparent',
 ]

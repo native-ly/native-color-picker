@@ -18,7 +18,7 @@ const NativeColorPicker: React.FC<Props> = ({
   itemSize = 44,
   markerType = 'border',
   markerDisplay = 'contrast',
-  onSelect = item => item,
+  onSelect = (item) => item,
   selectedColor,
   shadow = false,
   sort = false,
@@ -32,7 +32,7 @@ const NativeColorPicker: React.FC<Props> = ({
     {...props}
     data={sort ? colorSort(colors) : colors}
     horizontal={horizontal}
-    keyExtractor={index => index.toString()}
+    keyExtractor={(index) => index.toString()}
     numColumns={horizontal ? 1 : columns}
     renderItem={({ item }: { item: string }) => (
       <Item
