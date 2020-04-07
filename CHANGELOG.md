@@ -1,5 +1,9 @@
 # NativeColorPicker Changelog
 
+## 1.3.5 (2020-04-07)
+#### Improvement
+- added missing types
+
 ## 1.3.3 / 1.3.4 (2020-03-12)
 #### Change
 - updated types

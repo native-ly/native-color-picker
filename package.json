@@ -1,6 +1,6 @@
 {
   "name": "native-color-picker",
-  "version": "1.3.4",
+  "version": "1.3.5",
   "description": "Color picker for React Native (Expo projects only)",
   "author": "Jakub Biesiada",
   "license": "MIT",
