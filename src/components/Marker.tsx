@@ -7,8 +7,6 @@ import { MarkerProps } from '../interfaces'
 
 import { checkColor, countSize } from '../helpers'
 
-import { MarkerDisplayStyle, MarkerType, Animate } from '../enums'
-
 const Base: React.FC = ({ children }) => (
   <View
     style={{
@@ -65,9 +63,9 @@ export const Marker: React.FC<MarkerProps> = ({
   const rotateValue = new Animated.Value(1)
   const fadeValue = new Animated.Value(0)
 
-  if (display === MarkerDisplayStyle.Adjust) {
+  if (display === 'adjust') {
     color = checkColor(color)
-  } else if (display === MarkerDisplayStyle.Contrast) {
+  } else if (display === 'contrast') {
     color = Color(color).isDark() ? '#fff' : '#000'
   } else {
     color = display
@@ -79,8 +77,7 @@ export const Marker: React.FC<MarkerProps> = ({
       duration: 300,
     }).start()
 
-    return animate &&
-      (type === MarkerType.Checkmark || type === MarkerType.Border)
+    return animate && (type === 'checkmark' || type === 'border')
       ? fadeValue
       : 1
   }
@@ -93,8 +90,7 @@ export const Marker: React.FC<MarkerProps> = ({
 
     return {
       scale:
-        animate === Animate.Scale &&
-        (type === MarkerType.Checkmark || type === MarkerType.Border)
+        animate === 'scale' && (type === 'checkmark' || type === 'border')
           ? scaleValue
           : 1,
     }
@@ -108,7 +104,7 @@ export const Marker: React.FC<MarkerProps> = ({
 
     return {
       rotate:
-        animate === Animate.Rotate && type === MarkerType.Checkmark
+        animate === 'rotate' && type === 'checkmark'
           ? rotateValue.interpolate({
               inputRange: [0, 1],
               outputRange: ['0deg', '80deg'],
@@ -125,12 +121,12 @@ export const Marker: React.FC<MarkerProps> = ({
           transform: [scale(), rotate()],
         }}
       >
-        {type === MarkerType.Border ? (
+        {type === 'border' ? (
           <BorderMarker size={size} color={color} />
-        ) : type === MarkerType.Checkmark ? (
+        ) : type === 'checkmark' ? (
           <Icon name="md-checkmark" size={(size / 3) * 2} color={color} />
         ) : (
-          type === MarkerType.Fade && <FadeMarker size={size} />
+          type === 'fade' && <FadeMarker size={size} />
         )}
       </Animated.View>
     </Base>

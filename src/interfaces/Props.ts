@@ -6,20 +6,18 @@ import {
 } from 'react-native'
 import { LinearGradientProps } from 'expo-linear-gradient'
 
-import { MarkerDisplay } from '../types'
-
-import { Animate, MarkerType } from '../enums'
+import { Animate, MarkerDisplay, MarkerType } from '../types'
 
 export interface Props
   extends Omit<FlatListProps<string>, 'data' | 'renderItem'> {
-  readonly animate?: typeof Animate
+  readonly animate?: Animate
   readonly colors: string[]
   readonly columns?: number
   readonly gradient?: boolean
   readonly horizontal?: boolean
   readonly itemSize?: number
   readonly markerDisplay?: MarkerDisplay
-  readonly markerType?: typeof MarkerType
+  readonly markerType?: MarkerType
   readonly onSelect?: (item: string) => void
   readonly selectedColor?: string
   readonly shadow?: boolean
