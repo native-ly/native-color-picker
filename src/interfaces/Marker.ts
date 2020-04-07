@@ -1,6 +1,6 @@
 import { ViewProps } from 'react-native'
 
-import { MarkerDisplay, Animate, MarkerType } from '../types'
+import { Animate, MarkerDisplay, MarkerType } from '../types'
 
 export interface Marker extends ViewProps {
   readonly animate?: Animate

@@ -6,7 +6,7 @@ import {
 } from 'react-native'
 import { LinearGradientProps } from 'expo-linear-gradient'
 
-import { MarkerDisplay, Animate, MarkerType } from '../types'
+import { Animate, MarkerDisplay, MarkerType } from '../types'
 
 export interface Props
   extends Omit<FlatListProps<string>, 'data' | 'renderItem'> {
