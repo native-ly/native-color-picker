@@ -1,5 +1,7 @@
 import { FlatListProps, TouchableOpacityProps, StyleProp, ViewProps } from 'react-native';
-import { Animate, MarkerDisplay, MarkerType } from '../types';
+import { LinearGradientProps } from 'expo-linear-gradient';
+import { MarkerDisplay } from '../types';
+import { Animate, MarkerType } from '../enums';
 export interface Props extends Omit<FlatListProps<string>, 'data' | 'renderItem'> {
     readonly animate?: Animate;
     readonly colors: string[];
@@ -15,7 +17,6 @@ export interface Props extends Omit<FlatListProps<string>, 'data' | 'renderItem'
     readonly sort?: boolean;
     readonly itemProps?: TouchableOpacityProps;
     readonly itemStyle?: StyleProp<TouchableOpacityProps>;
-    readonly linearGradientProps?: any;
+    readonly linearGradientProps?: LinearGradientProps;
     readonly linearGradientStyle?: StyleProp<ViewProps>;
-    readonly [key: string]: any;
 }

@@ -1,6 +1,4 @@
-import { StyleProp, ViewStyle } from 'react-native';
-export interface Gradient {
+import { LinearGradientProps } from 'expo-linear-gradient';
+export interface Gradient extends LinearGradientProps {
     readonly size: number;
-    readonly colors: string[];
-    readonly style: StyleProp<ViewStyle>;
 }

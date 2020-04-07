@@ -9,6 +9,8 @@ import { Item, Marker, Gradient } from './components'
 
 import { lighter, darker } from './helpers'
 
+import { MarkerType, MarkerDisplayStyle } from './enums'
+
 const NativeColorPicker: React.FC<Props> = ({
   animate,
   colors = [],
@@ -16,8 +18,8 @@ const NativeColorPicker: React.FC<Props> = ({
   gradient = false,
   horizontal = false,
   itemSize = 44,
-  markerType = 'border',
-  markerDisplay = 'contrast',
+  markerType = MarkerType.Border,
+  markerDisplay = MarkerDisplayStyle.Contrast,
   onSelect = (item) => item,
   selectedColor,
   shadow = false,
