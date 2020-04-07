@@ -1,3 +1,1 @@
-import { MarkerDisplayStyle } from '../enums'
-
-export type MarkerDisplay = MarkerDisplayStyle | string
+export type MarkerDisplay = 'adjust' | 'contrast' | string
