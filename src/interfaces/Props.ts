@@ -2,7 +2,7 @@ import {
   FlatListProps,
   TouchableOpacityProps,
   StyleProp,
-  ViewProps,
+  ViewStyle,
 } from 'react-native'
 import { LinearGradientProps } from 'expo-linear-gradient'
 
@@ -25,7 +25,7 @@ export interface Props
   readonly shadow?: boolean
   readonly sort?: boolean
   readonly itemProps?: TouchableOpacityProps
-  readonly itemStyle?: StyleProp<TouchableOpacityProps>
+  readonly itemStyle?: StyleProp<ViewStyle>
   readonly linearGradientProps?: LinearGradientProps
-  readonly linearGradientStyle?: StyleProp<ViewProps>
+  readonly linearGradientStyle?: StyleProp<ViewStyle>
 }

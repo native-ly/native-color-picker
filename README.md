@@ -44,9 +44,9 @@ Name | Type | Default | Description | Available options
 **shadow** | boolean | `false` | Display shadow for list items | `true` - enable, `false` - disable
 **sort** | boolean | `false` | Order colors by perception | `true` - enable, `false` - disable
 **itemProps** | TouchableOpacity | `{}` | Item props | TouchableOpacity props
-**itemStyle** | StyleProps<TouchableOpacity> | `{}` | Styles for Item | TouchableOpacity styles
-**linearGradientProps** | ViewProps | `{}` | Gradient props | View props
-**linearGradientStyle** | StyleProps<ViewProps> | `{}` | Styles for Gradient | View styles
+**itemStyle** | StyleProps<ViewStyle> | `{}` | Styles for Item | View styles
+**linearGradientProps** | LinearGradientProps | `{}` | Gradient props | LinearGradientProps props
+**linearGradientStyle** | StyleProps<ViewStyle> | `{}` | Styles for Gradient | View styles
 
 ## License
 This project is licensed under the MIT License © 2019-present Jakub Biesiada
