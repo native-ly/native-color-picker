@@ -1,6 +1,7 @@
 src
 assets
-lib
+test
+coverage
 
 tsconfig.json
 .travis.yml
