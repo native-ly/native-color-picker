@@ -1,11 +1,10 @@
 import React from 'react'
 import { View, Animated, StyleSheet } from 'react-native'
-import Icon from 'react-native-vector-icons/Ionicons'
 import Color from 'color'
 
-import { MarkerProps } from '../interfaces'
+import { MarkerProps } from '../../interfaces'
 
-import { checkColor, countSize } from '../helpers'
+import { checkColor, countSize } from '../../helpers'
 
 const Base: React.FC = ({ children }) => (
   <View
@@ -72,45 +71,42 @@ export const Marker: React.FC<MarkerProps> = ({
   }
 
   const opacity = () => {
-    Animated.timing(scaleValue, {
-      toValue: 1,
-      duration: 300,
-    }).start()
-
-    return animate && (type === 'checkmark' || type === 'border')
-      ? fadeValue
-      : 1
+    // Animated.timing(scaleValue, {
+    //   toValue: 1,
+    //   duration: 300,
+    // }).start()
+    // return animate && (type === 'checkmark' || type === 'border')
+    //   ? fadeValue
+    //   : 1
   }
 
   const scale = () => {
-    Animated.timing(rotateValue, {
-      toValue: 0,
-      duration: 300,
-    }).start()
-
-    return {
-      scale:
-        animate === 'scale' && (type === 'checkmark' || type === 'border')
-          ? scaleValue
-          : 1,
-    }
+    // Animated.timing(rotateValue, {
+    //   toValue: 0,
+    //   duration: 300,
+    // }).start()
+    // return {
+    //   scale:
+    //     animate === 'scale' && (type === 'checkmark' || type === 'border')
+    //       ? scaleValue
+    //       : 1,
+    // }
   }
 
   const rotate = () => {
-    Animated.timing(fadeValue, {
-      toValue: 1,
-      duration: 300,
-    }).start()
-
-    return {
-      rotate:
-        animate === 'rotate' && type === 'checkmark'
-          ? rotateValue.interpolate({
-              inputRange: [0, 1],
-              outputRange: ['0deg', '80deg'],
-            })
-          : '0deg',
-    }
+    // Animated.timing(fadeValue, {
+    //   toValue: 1,
+    //   duration: 300,
+    // }).start()
+    // return {
+    //   rotate:
+    //     animate === 'rotate' && type === 'checkmark'
+    //       ? rotateValue.interpolate({
+    //           inputRange: [0, 1],
+    //           outputRange: ['0deg', '80deg'],
+    //         })
+    //       : '0deg',
+    // }
   }
 
   return (
@@ -123,8 +119,6 @@ export const Marker: React.FC<MarkerProps> = ({
       >
         {type === 'border' ? (
           <BorderMarker size={size} color={color} />
-        ) : type === 'checkmark' ? (
-          <Icon name="md-checkmark" size={(size / 3) * 2} color={color} />
         ) : (
           type === 'fade' && <FadeMarker size={size} />
         )}

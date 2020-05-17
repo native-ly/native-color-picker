@@ -1,1 +1,1 @@
-export type MarkerType = 'border' | 'checkmark' | 'fade' | 'none'
+export type MarkerType = 'border' | 'component' | 'fade' | 'none'
