@@ -1,15 +1,14 @@
 {
   "name": "native-color-picker",
-  "version": "1.3.5",
-  "description": "Color picker for React Native (Expo projects only)",
+  "version": "2.0.0-alpha.0",
+  "description": "Color picker for React Native",
   "author": "Jakub Biesiada",
   "license": "MIT",
-  "main": "lib/native-color-picker.cjs.js",
-  "module": "lib/native-color-picker.esm.js",
+  "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
     "release": "rimraf lib/* && npm run prettier && npm run lint && npm run build",
-    "build": "rollup -c",
+    "build": "tsc",
     "test": "jest --coverage",
     "watch": "npm run build -- --watch",
     "watch:test": "npm run test -- --watch",
@@ -18,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/JB1905/native-color-picker.git"
+    "url": "https://github.com/native-ly/native-color-picker.git"
   },
   "keywords": [
     "TypeScript",
@@ -28,39 +27,46 @@
     "picker"
   ],
   "bugs": {
-    "url": "https://github.com/JB1905/native-color-picker/issues"
+    "url": "https://github.com/native-ly/native-color-picker/issues"
   },
-  "homepage": "https://github.com/JB1905/native-color-picker#readme",
+  "homepage": "https://github.com/native-ly/native-color-picker#readme",
   "dependencies": {
     "color": "^3.1.2",
     "color-sort": "^0.0.1",
     "expo-linear-gradient": "^8.1.0",
-    "react-native-linear-gradient": "^2.5.6",
-    "react-native-vector-icons": "^6.6.0"
+    "react-native-linear-gradient": "^2.5.6"
   },
   "devDependencies": {
-    "@rollup/plugin-node-resolve": "^7.1.1",
+    "@testing-library/react-native": "^5.0.3",
     "@types/color": "^3.0.1",
-    "@types/react": "^16.9.32",
-    "@types/react-native-vector-icons": "^6.4.5",
-    "@typescript-eslint/parser": "^2.27.0",
-    "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.10.1",
-    "eslint-plugin-prettier": "^3.1.2",
-    "eslint-plugin-react": "^7.19.0",
+    "@types/jest": "^25.2.2",
+    "@types/react": "^16.9.35",
+    "@types/react-native": "^0.62.10",
+    "@typescript-eslint/parser": "^2.33.0",
+    "eslint": "^7.0.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-react-native": "^3.8.1",
-    "husky": "^4.2.3",
-    "lint-staged": "^10.1.2",
-    "prettier": "^2.0.4",
+    "husky": "^4.2.5",
+    "jest": "^26.0.1",
+    "lint-staged": "^10.2.2",
+    "prettier": "^2.0.5",
     "react": "^16.13.1",
     "react-native": "^0.62.1",
-    "rollup-plugin-terser": "^5.3.0",
-    "rollup-plugin-typescript2": "^0.27.0",
-    "typescript": "^3.8.3"
+    "react-test-renderer": "^16.13.1",
+    "ts-jest": "^26.0.0",
+    "typescript": "^3.9.2"
   },
   "peerDependencies": {
     "react": ">=16.8.0",
     "react-native": ">=0.59.0"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "preset": "@testing-library/react-native"
   },
   "husky": {
     "hooks": {

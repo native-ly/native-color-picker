@@ -6,7 +6,7 @@ import {
 } from 'react-native'
 import { LinearGradientProps } from 'react-native-linear-gradient'
 
-import type { Animate, MarkerDisplay, MarkerType } from '../types'
+import type { Animate, MarkerDisplay, MarkerType } from '../../types'
 
 export interface Props
   extends Omit<FlatListProps<string>, 'data' | 'renderItem'> {
@@ -18,13 +18,12 @@ export interface Props
   readonly itemSize?: number
   readonly markerDisplay?: MarkerDisplay
   readonly markerType?: MarkerType
-  // readonly markerComponent: any
   readonly onSelect?: (item: string) => void
   readonly selectedColor?: string
   readonly shadow?: boolean
   readonly sort?: boolean
   readonly itemProps?: TouchableOpacityProps
-  readonly itemStyle?: StyleProp<any>
+  readonly itemStyle?: StyleProp<ViewStyle>
   readonly linearGradientProps?: LinearGradientProps
   readonly linearGradientStyle?: StyleProp<ViewStyle>
 }

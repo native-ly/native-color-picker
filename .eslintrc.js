@@ -8,6 +8,7 @@ module.exports = {
   plugins: ['prettier', 'react-native'],
   env: {
     'react-native/react-native': true,
+    jest: true,
   },
   rules: {
     'react/prop-types': 0,

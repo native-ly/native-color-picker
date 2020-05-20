@@ -1,5 +1,18 @@
 # NativeColorPicker Changelog
 
+## 2.0.0 ()
+#### New Feature
+- added marker component
+
+#### Breaking Changes
+- removed checkmark
+
+#### Bug Fix
+- fixed error in bare RN apps
+
+#### Improvement
+- improved web support
+
 ## 1.3.5 (2020-04-07)
 #### Improvement
 - added missing types
