@@ -2,9 +2,9 @@ import React from 'react'
 import { View, Animated, StyleSheet } from 'react-native'
 import Color from 'color'
 
-import { MarkerProps } from '../../interfaces'
+import { MarkerProps } from '../interfaces'
 
-import { checkColor, countSize } from '../../helpers'
+import { checkColor, countSize } from '../helpers'
 
 const Base: React.FC = ({ children }) => (
   <View

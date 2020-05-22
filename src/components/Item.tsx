@@ -1,7 +1,7 @@
 import React from 'react'
 import { TouchableOpacity, StyleSheet } from 'react-native'
 
-import { ItemProps } from '../../interfaces'
+import { ItemProps } from '../interfaces'
 
 export const Item: React.FC<ItemProps> = ({
   children,

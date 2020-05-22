@@ -5,11 +5,7 @@ import Color from 'color'
 
 import { Props } from './interfaces'
 
-import {
-  Item,
-  //  Marker,
-  Gradient,
-} from './components'
+import { Item, Marker, Gradient } from './components'
 
 import { lighter, darker } from './helpers'
 
@@ -47,7 +43,7 @@ const NativeColorPicker: React.FC<Props> = ({
         onPress={() => onSelect(item)}
         shadow={shadow}
       >
-        {/* {selectedColor === item && (
+        {selectedColor === item && (
           <Marker
             color={item}
             animate={animate}
@@ -55,7 +51,7 @@ const NativeColorPicker: React.FC<Props> = ({
             display={markerDisplay}
             size={itemSize}
           />
-        )} */}
+        )}
 
         {gradient && (
           <Gradient
