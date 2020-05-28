@@ -3,12 +3,15 @@ import { TouchableOpacity, StyleSheet } from 'react-native'
 
 import { ItemProps } from '../interfaces'
 
+// const Touchable =
+//   Platform.OS === 'android' ? TouchableNativeFeedback : TouchableOpacity
+
 export const Item: React.FC<ItemProps> = ({
-  children,
-  style,
   color,
   itemSize,
   shadow,
+  children,
+  style,
   ...props
 }) => (
   <TouchableOpacity

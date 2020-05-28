@@ -5,9 +5,13 @@ import { LinearGradient } from '../imports'
 
 import { GradientProps } from '../interfaces'
 
-export const Gradient: React.FC<GradientProps> = ({ colors, style, size }) => (
+export const Gradient: React.FC<GradientProps> = ({
+  style,
+  size,
+  ...props
+}) => (
   <LinearGradient
-    colors={colors}
+    {...props}
     style={StyleSheet.flatten([
       style,
       {

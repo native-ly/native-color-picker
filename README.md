@@ -45,7 +45,6 @@ import NativeColorPicker from 'native-color-picker';
 ## Options
 Name | Type | Default | Description | Available options
 -|-|-|-|-
-**animate** | string | ` ` | Animate marker on item select | `scale` or `rotate`
 **colors** | string[] | `[]` | Colors to display in a color picker | e.g.: `['#f96204', '#43d8c9']`
 **columns** | number | `5` | Number of columns in color list (only vertical) | Number of columns
 **gradient** | boolean | `false` | Enable or disable gradient layer over the color item | `true` - enable, `false` - disable
@@ -55,8 +54,10 @@ Name | Type | Default | Description | Available options
 **selectedColor** | string | ` ` | Marked item | Color from the list `colors`
 **shadow** | boolean | `false` | Display shadow for list items | `true` - enable, `false` - disable
 **sort** | boolean | `false` | Order colors by perception | `true` - enable, `false` - disable
-**itemProps** | TouchableOpacity | `{}` | Item props | TouchableOpacity props
+**itemProps** | TouchableOpacityProps | `{}` | Item props | TouchableOpacity props
 **itemStyle** | StyleProps<ViewStyle> | `{}` | Styles for Item | View styles
+**markerProps** | ViewProps | `{}` | Item props | TouchableOpacity props
+**markerStyle** | StyleProps<ViewStyle> | `{}` | Styles for Item | View styles
 **linearGradientProps** | LinearGradientProps | `{}` | Gradient props | LinearGradientProps props
 **linearGradientStyle** | StyleProps<ViewStyle> | `{}` | Styles for Gradient | View styles
 
