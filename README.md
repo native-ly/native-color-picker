@@ -56,7 +56,7 @@ Name | Type | Default | Description | Available options
 **sort** | boolean | `false` | Order colors by perception | `true` - enable, `false` - disable
 **itemProps** | TouchableOpacityProps | `{}` | Item props | TouchableOpacity props
 **itemStyle** | StyleProps<ViewStyle> | `{}` | Styles for Item | View styles
-**markerProps** | ViewProps | `{}` | Item props | TouchableOpacity props
+**markerProps** | ViewProps | `{}` | Item props | View props
 **markerStyle** | StyleProps<ViewStyle> | `{}` | Styles for Item | View styles
 **linearGradientProps** | LinearGradientProps | `{}` | Gradient props | LinearGradientProps props
 **linearGradientStyle** | StyleProps<ViewStyle> | `{}` | Styles for Gradient | View styles
