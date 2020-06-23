@@ -1,0 +1,66 @@
+import React from 'react'
+import { render, fireEvent } from 'react-native-testing-library'
+
+import NativeColorPicker from '../src'
+
+describe('NativeColorPicker', () => {
+  const colors = ['#d73964', '#d23440', '#db643a', '#e88334']
+
+  it('should render colors grid with default props', () => {
+    const { toJSON } = render(
+      <NativeColorPicker colors={colors} />
+    )
+
+    expect(toJSON()).toMatchSnapshot()
+  })
+
+  it('should render colors grid with custom props', () => {
+    const customProps = {
+      sort: true,
+      gradient: true,
+      shadow: true,
+      columns: 4,
+    }
+
+    const { toJSON, getAllByTestId } = render(
+      <NativeColorPicker colors={colors} {...customProps} />
+    )
+
+    expect(toJSON()).toMatchSnapshot()
+    expect(getAllByTestId('item-gradient').length).toBe(4)
+  })
+
+  it('should render horizontal colors list with fade marker', () => {
+    const customProps = {
+      horizontal: true,
+      markerProps: {
+        size: 10,
+        color: 'contrast',
+      },
+    }
+
+    const { toJSON } = render(
+      <NativeColorPicker colors={colors} {...customProps} />
+    )
+
+    expect(toJSON()).toMatchSnapshot()
+  })
+
+  it('should select color items', () => {
+    const onPress = jest.fn()
+
+    const { getAllByTestId } = render(
+      <NativeColorPicker
+        colors={colors}
+        onSelect={onPress}
+        selectedColor={colors[0]}
+      />
+    )
+
+    fireEvent.press(getAllByTestId('color-item')[1])
+    fireEvent.press(getAllByTestId('color-item')[2])
+
+    expect(onPress).toBeCalledWith(colors[1])
+    expect(onPress).toBeCalledWith(colors[2])
+  })
+})

@@ -1,5 +1,8 @@
 src
 assets
+__tests__
+coverage
+.jest
 
 tsconfig.json
 .travis.yml
