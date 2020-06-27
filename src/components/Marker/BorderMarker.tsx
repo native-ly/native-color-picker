@@ -10,6 +10,7 @@ interface Props {
 
 export const BorderMarker: React.FC<Props> = ({ size, color }) => (
   <View
+    testID="border-marker"
     style={{
       ...StyleSheet.absoluteFillObject,
       width: size - 4,

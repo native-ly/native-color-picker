@@ -102,6 +102,7 @@ export const Marker: React.FC<MarkerProps> = ({
           <BorderMarker size={size} color={color} />
         ) : markerType === 'icon' ? (
           <Icon
+            testID="icon-marker"
             type={iconType}
             name={iconName}
             size={(size / 3) * 2}

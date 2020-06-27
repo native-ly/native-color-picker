@@ -33,6 +33,7 @@ const NativeColorPicker: React.FC<Props> = ({
     horizontal={horizontal}
     keyExtractor={(index) => index.toString()}
     numColumns={horizontal ? 1 : columns}
+    testID="colors-grid"
     renderItem={({ item }: { item: string }) => (
       <Item
         {...itemProps}
@@ -41,6 +42,7 @@ const NativeColorPicker: React.FC<Props> = ({
         itemSize={itemSize}
         onPress={() => onSelect(item)}
         shadow={shadow}
+        testID="color-item"
       >
         {selectedColor === item && (
           <Marker
@@ -48,6 +50,7 @@ const NativeColorPicker: React.FC<Props> = ({
             style={markerStyle}
             color={item}
             size={itemSize}
+            testID="current-color-marker"
           />
         )}
 
@@ -56,6 +59,7 @@ const NativeColorPicker: React.FC<Props> = ({
             {...linearGradientProps}
             style={linearGradientStyle}
             colors={Color(item).isDark() ? darker(item) : lighter(item)}
+            testID="item-gradient"
             size={itemSize}
           />
         )}

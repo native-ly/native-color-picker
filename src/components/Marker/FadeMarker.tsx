@@ -7,6 +7,7 @@ interface Props {
 
 export const FadeMarker: React.FC<Props> = ({ size }) => (
   <View
+    testID="fade-marker"
     style={{
       ...StyleSheet.absoluteFillObject,
       backgroundColor: '#fff8',

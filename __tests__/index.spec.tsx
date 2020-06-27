@@ -3,13 +3,14 @@ import { render, fireEvent } from 'react-native-testing-library'
 
 import NativeColorPicker from '../src'
 
+jest.mock('native-icons', () => 'Icon')
+jest.mock('react-native/Libraries/Animated/src/NativeAnimatedHelper')
+
 describe('NativeColorPicker', () => {
   const colors = ['#d73964', '#d23440', '#db643a', '#e88334']
 
   it('should render colors grid with default props', () => {
-    const { toJSON } = render(
-      <NativeColorPicker colors={colors} />
-    )
+    const { toJSON } = render(<NativeColorPicker colors={colors} />)
 
     expect(toJSON()).toMatchSnapshot()
   })
