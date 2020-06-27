@@ -11,3 +11,5 @@ tsconfig.json
 .eslintrc.js
 global.d.ts
 yarn-error.log
+babel.config.js
+jest.config.js
