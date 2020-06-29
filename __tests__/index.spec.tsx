@@ -16,6 +16,14 @@ describe('NativeColorPicker', () => {
   })
 
   it('should render colors grid with custom props', () => {
+    // jest.mock('Platform', () => {
+    //   const Platform = require.requireActual('Platform');
+
+    //   Platform.OS = 'android';
+
+    //   return Platform;
+    // });
+
     const customProps = {
       sort: true,
       gradient: true,
@@ -34,10 +42,11 @@ describe('NativeColorPicker', () => {
   it('should render horizontal colors list with fade marker', () => {
     const customProps = {
       horizontal: true,
-      markerProps: {
-        size: 10,
-        color: 'contrast',
-      },
+      // markerProps: {
+      //   size: 10,
+      //   // markerType: 'fade'
+      //   // markerDisplay: 'adjust',
+      // },
     }
 
     const { toJSON } = render(
@@ -47,7 +56,27 @@ describe('NativeColorPicker', () => {
     expect(toJSON()).toMatchSnapshot()
   })
 
-  it('should select color items', () => {
+  it.each([
+    {
+      markerProps: {
+        // markerType: 'fade'
+        markerDisplay: '#fff',
+        animate: 'scale',
+      },
+    },
+    {
+      markerProps: {
+        markerType: 'fade',
+      },
+    },
+    {
+      markerProps: {
+        markerType: 'icon',
+        markerDisplay: 'adjust',
+        animate: 'rotate',
+      },
+    },
+  ])('should select color items', (customProps) => {
     const onPress = jest.fn()
 
     const { getAllByTestId } = render(
@@ -55,6 +84,7 @@ describe('NativeColorPicker', () => {
         colors={colors}
         onSelect={onPress}
         selectedColor={colors[0]}
+        {...customProps}
       />
     )
 
@@ -64,4 +94,35 @@ describe('NativeColorPicker', () => {
     expect(onPress).toBeCalledWith(colors[1])
     expect(onPress).toBeCalledWith(colors[2])
   })
+
+  // it('should select color items', () => {
+  //   const onPress = jest.fn()
+
+  //   const customProps = {
+  //     markerProps: {
+  //       markerType: 'fade'
+  //     }
+  //   }
+
+  //   // const customProps = {
+  //   //   markerProps: {
+  //   //     markerType: 'icon'
+  //   //   }
+  //   // }
+
+  //   const { getAllByTestId } = render(
+  //     <NativeColorPicker
+  //       colors={colors}
+  //       onSelect={onPress}
+  //       selectedColor={colors[0]}
+  //       {...customProps}
+  //     />
+  //   )
+
+  //   fireEvent.press(getAllByTestId('color-item')[1])
+  //   fireEvent.press(getAllByTestId('color-item')[2])
+
+  //   expect(onPress).toBeCalledWith(colors[1])
+  //   expect(onPress).toBeCalledWith(colors[2])
+  // })
 })

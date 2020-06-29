@@ -5,6 +5,7 @@
 #### New Feature
 
 - added marker component
+- added `Component` prop to `Item` component
 
 #### Breaking Changes
 
@@ -17,6 +18,10 @@
 #### Improvement
 
 - improved web support
+
+#### Tests
+
+- added tests
 
 ## 1.3.5 (2020-04-07)
 

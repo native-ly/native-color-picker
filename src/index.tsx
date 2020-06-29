@@ -10,12 +10,12 @@ import { Item, Marker, Gradient } from './components'
 import { lighter, darker } from './helpers'
 
 const NativeColorPicker: React.FC<Props> = ({
-  colors = [],
+  colors,
   columns = 5,
   gradient = false,
   horizontal = false,
   itemSize = 44,
-  onSelect = (item) => item,
+  onSelect = (item) => item, // TODO
   selectedColor,
   shadow = false,
   sort = false,
