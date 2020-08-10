@@ -1,8 +1,10 @@
 # [NativeColorPicker](https://github.com/native-ly/native-color-picker)
 
-[![NPM version](http://img.shields.io/npm/v/native-color-picker.svg?style=flat-square)](https://www.npmjs.com/package/native-color-picker)
-[![NPM downloads](http://img.shields.io/npm/dm/native-color-picker.svg?style=flat-square)](https://www.npmjs.com/package/native-color-picker)
-[![run in expo snack](https://img.shields.io/badge/Run%20in%20Snack-4630EB.svg?style=flat-square&logo=EXPO&labelColor=FFF&logoColor=000)](https://snack.expo.io/@jbiesiada/native-color-picker)
+[![NPM version](https://img.shields.io/npm/v/native-color-picker?style=flat-square)](https://www.npmjs.com/package/native-color-picker)
+[![NPM downloads](https://img.shields.io/npm/dm/native-color-picker?style=flat-square)](https://www.npmjs.com/package/native-color-picker)
+[![NPM license](https://img.shields.io/npm/l/native-color-picker?style=flat-square)](https://www.npmjs.com/package/native-color-picker)
+[![run in expo snack](https://img.shields.io/badge/Run%20in%20Snack-4630EB?style=flat-square&logo=EXPO&labelColor=FFF&logoColor=000)](https://snack.expo.io/@jbiesiada/native-color-picker)
+[![Travis](https://img.shields.io/travis/native-ly/native-color-picker/master?style=flat-square)](https://travis-ci.org/native-ly/native-color-picker)
 
 <p align="center">
   <img width="420" src="https://raw.githubusercontent.com/native-ly/native-color-picker/master/assets/preview.jpg">
