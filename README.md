@@ -14,6 +14,11 @@
 
 Color picker for React Native
 
+### Alternatives
+
+- [react-native-color-picker](https://github.com/instea/react-native-color-picker/) by [instea](https://github.com/instea/)
+- [React Native Color Palette](https://github.com/holmansv/react-native-color-palette/) by [Holman Strategic Ventures](https://github.com/holmansv/)
+
 ## How to Install
 
 First, install the library in your project by npm:
