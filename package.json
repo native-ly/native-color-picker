@@ -7,24 +7,29 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "release": "rimraf lib/* && npm run prettier && npm run lint && npm run build",
+    "prepack": "npm run clean && npm run prettier && npm run lint && npm run build",
+    "clean": "rimraf lib/*",
     "build": "tsc",
     "test": "jest --coverage",
     "watch": "npm run build -- --watch",
     "watch:test": "npm run test -- --watch",
     "lint": "eslint --fix 'src/**/*.{tsx,ts}'",
-    "prettier": "prettier --write 'src/**/*.{tsx,ts}'"
+    "prettier": "prettier --write 'src/**/*.{tsx,ts}'",
+    "commit": "git-cz",
+    "semantic-release": "semantic-release"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/native-ly/native-color-picker.git"
   },
   "keywords": [
-    "TypeScript",
-    "React",
-    "React Native",
+    "react",
+    "react-native",
     "colors",
-    "picker"
+    "picker",
+    "component",
+    "library",
+    "expo"
   ],
   "bugs": {
     "url": "https://github.com/native-ly/native-color-picker/issues"
@@ -34,37 +39,44 @@
     "color": "^3.1.2",
     "color-sort": "^0.0.1",
     "expo-linear-gradient": "^8.2.1",
-    "native-icons": "^1.0.0",
+    "native-icons": "^1.1.0",
     "react-native-linear-gradient": "^2.5.6"
   },
   "devDependencies": {
-    "@testing-library/jest-native": "^3.1.0",
+    "@testing-library/jest-native": "^3.3.0",
+    "@testing-library/react-native": "^7.0.1",
     "@types/color": "^3.0.1",
-    "@types/jest": "^26.0.3",
-    "@types/react": "^16.9.41",
-    "@types/react-native": "^0.62.14",
+    "@types/jest": "^26.0.8",
+    "@types/react": "^16.9.43",
+    "@types/react-native": "^0.63.2",
     "@types/react-native-vector-icons": "^6.4.5",
-    "@typescript-eslint/parser": "^3.4.0",
-    "babel-jest": "^26.1.0",
-    "eslint": "^7.3.1",
+    "@typescript-eslint/parser": "^3.7.1",
+    "babel-jest": "^26.2.2",
+    "cz-conventional-changelog": "3.2.0",
+    "eslint": "^7.5.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.4",
-    "eslint-plugin-react": "^7.20.0",
+    "eslint-plugin-react": "^7.20.5",
     "eslint-plugin-react-native": "^3.8.1",
     "husky": "^4.2.5",
-    "jest": "^26.1.0",
+    "jest": "^26.2.2",
     "lint-staged": "^10.2.11",
     "prettier": "^2.0.5",
     "react": "^16.13.1",
     "react-native": "^0.62.1",
-    "react-native-testing-library": "^2.1.0",
     "react-test-renderer": "^16.13.1",
-    "ts-jest": "^26.1.1",
-    "typescript": "^3.9.5"
+    "ts-jest": "^26.1.4",
+    "typescript": "^3.9.7",
+    "semantic-release": "^17.1.1"
   },
   "peerDependencies": {
     "react": ">=16.8.0",
     "react-native": ">=0.59.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   },
   "husky": {
     "hooks": {
