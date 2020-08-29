@@ -1,4 +1,4 @@
-# [NativeColorPicker](https://github.com/native-ly/native-color-picker)
+# [native-color-picker](https://github.com/native-ly/native-color-picker)
 
 [![NPM version](https://img.shields.io/npm/v/native-color-picker?style=flat-square)](https://www.npmjs.com/package/native-color-picker)
 [![NPM downloads](https://img.shields.io/npm/dm/native-color-picker?style=flat-square)](https://www.npmjs.com/package/native-color-picker)

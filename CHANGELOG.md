@@ -1,4 +1,4 @@
-# NativeColorPicker Changelog
+# native-color-picker Changelog
 
 ## 2.0.0 ()
 
