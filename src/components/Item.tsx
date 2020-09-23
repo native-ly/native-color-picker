@@ -1,35 +1,29 @@
-import React, { useMemo } from 'react'
+import React, { useMemo, memo } from 'react'
 import { StyleSheet } from 'react-native'
 
 import { pickComponent } from '../helpers'
 
 import { ItemProps } from '../interfaces'
 
-export const Item: React.FC<ItemProps> = ({
-  color,
-  itemSize,
-  shadow,
-  children,
-  style,
-  Component,
-  ...props
-}) => {
-  // TODO
-  const Touchable: any = useMemo(() => pickComponent(Component), [])
+export const Item: React.FC<ItemProps> = memo(
+  ({ color, itemSize, shadow, children, style, Component, ...props }) => {
+    // TODO
+    const Touchable: any = useMemo(() => pickComponent(Component), [])
 
-  return (
-    <Touchable
-      {...props}
-      style={StyleSheet.flatten([
-        style,
-        itemStyles({ color, itemSize }),
-        shadow && shadowStyles({ color }),
-      ])}
-    >
-      {children}
-    </Touchable>
-  )
-}
+    return (
+      <Touchable
+        {...props}
+        style={StyleSheet.flatten([
+          style,
+          itemStyles({ color, itemSize }),
+          shadow && shadowStyles({ color }),
+        ])}
+      >
+        {children}
+      </Touchable>
+    )
+  }
+)
 
 const itemStyles = StyleSheet.create(
   ({ color, itemSize }: Pick<ItemProps, 'color' | 'itemSize'>) => ({

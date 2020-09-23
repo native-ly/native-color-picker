@@ -16,6 +16,7 @@ module.exports = {
     'no-unused-vars': ['off'],
     'react-native/no-unused-styles': 2,
     'react-native/split-platform-components': 2,
+    'react/display-name': 'off',
   },
   parserOptions: {
     ecmaVersion: 6,

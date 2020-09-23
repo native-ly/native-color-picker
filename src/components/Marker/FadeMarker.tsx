@@ -1,13 +1,13 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { View, StyleSheet } from 'react-native'
 
 interface Props {
   readonly size: number
 }
 
-export const FadeMarker = ({ size }: Props) => (
+export const FadeMarker = memo(({ size }: Props) => (
   <View testID="fade-marker" style={markerStyles({ size })} />
-)
+))
 
 const markerStyles = StyleSheet.create(({ size }: Props) => ({
   ...StyleSheet.absoluteFillObject,
