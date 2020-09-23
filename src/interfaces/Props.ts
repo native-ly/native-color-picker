@@ -9,7 +9,7 @@ export interface Props
   readonly gradient?: boolean
   readonly horizontal?: boolean
   readonly itemSize?: number
-  readonly onSelect?: (item: string) => void
+  onSelect?: (item: string) => void
   readonly selectedColor?: string
   readonly shadow?: boolean
   readonly sort?: boolean

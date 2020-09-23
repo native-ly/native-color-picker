@@ -4,10 +4,9 @@ import {
   TouchableNativeFeedbackProps,
 } from 'react-native'
 
-// TODO
-
-// export interface Item extends TouchableOpacityProps, TouchableNativeFeedbackProps {
-export interface Item extends TouchableOpacityProps {
+export interface Item
+  extends TouchableOpacityProps,
+    TouchableNativeFeedbackProps {
   readonly color: string
   readonly itemSize: number
   readonly shadow: boolean

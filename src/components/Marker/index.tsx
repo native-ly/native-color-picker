@@ -27,7 +27,6 @@ export const Marker = ({
 
   const [colorValue, setColorValue] = useState(color)
 
-  // TODO
   useEffect(() => {
     let accent: string
 

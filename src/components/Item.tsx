@@ -15,7 +15,7 @@ export const Item: React.FC<ItemProps> = ({
   ...props
 }) => {
   // TODO
-  const Touchable = useMemo(() => pickComponent(Component), [])
+  const Touchable: any = useMemo(() => pickComponent(Component), [])
 
   return (
     <Touchable
