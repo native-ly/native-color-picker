@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useCallback, useEffect } from 'react'
 import { View, Animated, StyleSheet } from 'react-native'
 import Icon from 'native-icons'
 import Color from 'color'
@@ -10,7 +10,7 @@ import { MarkerProps } from '../../interfaces'
 
 import { checkColor } from '../../helpers'
 
-export const Marker: React.FC<MarkerProps> = ({
+export const Marker = ({
   color,
   size,
   animate,
@@ -20,20 +20,29 @@ export const Marker: React.FC<MarkerProps> = ({
   iconType = 'ionicons',
   style,
   ...props
-}) => {
+}: MarkerProps) => {
   const scaleValue = new Animated.Value(0)
   const rotateValue = new Animated.Value(1)
   const fadeValue = new Animated.Value(0)
 
-  if (markerDisplay === 'adjust') {
-    color = checkColor(color)
-  } else if (markerDisplay === 'contrast') {
-    color = Color(color).isDark() ? '#fff' : '#000'
-  } else {
-    color = markerDisplay
-  }
+  const [colorValue, setColorValue] = useState(color)
 
-  const opacity = () => {
+  // TODO
+  useEffect(() => {
+    let accent: string
+
+    if (markerDisplay === 'adjust') {
+      accent = checkColor(color)
+    } else if (markerDisplay === 'contrast') {
+      accent = Color(color).isDark() ? '#fff' : '#000'
+    } else {
+      accent = markerDisplay
+    }
+
+    setColorValue(accent)
+  }, [])
+
+  const opacity = useCallback(() => {
     Animated.timing(scaleValue, {
       toValue: 1,
       duration: 300,
@@ -43,9 +52,9 @@ export const Marker: React.FC<MarkerProps> = ({
     return animate && (markerType === 'icon' || markerType === 'border')
       ? fadeValue
       : 1
-  }
+  }, [])
 
-  const scale = () => {
+  const scale = useCallback(() => {
     Animated.timing(rotateValue, {
       toValue: 0,
       duration: 300,
@@ -59,9 +68,9 @@ export const Marker: React.FC<MarkerProps> = ({
           ? scaleValue
           : 1,
     }
-  }
+  }, [])
 
-  const rotate = () => {
+  const rotate = useCallback(() => {
     Animated.timing(fadeValue, {
       toValue: 1,
       duration: 300,
@@ -77,21 +86,10 @@ export const Marker: React.FC<MarkerProps> = ({
             })
           : '0deg',
     }
-  }
+  }, [])
 
   return (
-    <View
-      {...props}
-      style={StyleSheet.flatten([
-        style,
-        {
-          ...StyleSheet.absoluteFillObject,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-        },
-      ])}
-    >
+    <View {...props} style={StyleSheet.flatten([style, styles.wrapper])}>
       <Animated.View
         style={{
           opacity: opacity(),
@@ -99,14 +97,14 @@ export const Marker: React.FC<MarkerProps> = ({
         }}
       >
         {markerType === 'border' ? (
-          <BorderMarker size={size} color={color} />
+          <BorderMarker size={size} color={colorValue} />
         ) : markerType === 'icon' ? (
           <Icon
             testID="icon-marker"
             type={iconType}
             name={iconName}
             size={(size / 3) * 2}
-            color={color}
+            color={colorValue}
           />
         ) : (
           markerType === 'fade' && <FadeMarker size={size} />
@@ -115,3 +113,12 @@ export const Marker: React.FC<MarkerProps> = ({
     </View>
   )
 }
+
+const styles = StyleSheet.create({
+  wrapper: {
+    ...StyleSheet.absoluteFillObject,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+})

@@ -5,20 +5,17 @@ import { LinearGradient } from '../imports'
 
 import { GradientProps } from '../interfaces'
 
-export const Gradient: React.FC<GradientProps> = ({
-  style,
-  size,
-  ...props
-}) => (
+export const Gradient = ({ style, size, ...props }: GradientProps) => (
   <LinearGradient
     {...props}
-    style={StyleSheet.flatten([
-      style,
-      {
-        ...StyleSheet.absoluteFillObject,
-        borderRadius: size / 2,
-        zIndex: -1,
-      },
-    ])}
+    style={StyleSheet.flatten([style, gradientStyles({ size })])}
   />
+)
+
+const gradientStyles = StyleSheet.create(
+  ({ size }: Pick<GradientProps, 'size'>) => ({
+    ...StyleSheet.absoluteFillObject,
+    borderRadius: size / 2,
+    zIndex: -1,
+  })
 )

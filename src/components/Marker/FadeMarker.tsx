@@ -5,17 +5,16 @@ interface Props {
   readonly size: number
 }
 
-export const FadeMarker: React.FC<Props> = ({ size }) => (
-  <View
-    testID="fade-marker"
-    style={{
-      ...StyleSheet.absoluteFillObject,
-      backgroundColor: '#fff8',
-      width: size,
-      height: size,
-      marginTop: -(size / 2),
-      marginLeft: -(size / 2),
-      borderRadius: size / 2,
-    }}
-  />
+export const FadeMarker = ({ size }: Props) => (
+  <View testID="fade-marker" style={markerStyles({ size })} />
 )
+
+const markerStyles = StyleSheet.create(({ size }: Props) => ({
+  ...StyleSheet.absoluteFillObject,
+  backgroundColor: '#fff8',
+  width: size,
+  height: size,
+  marginTop: -(size / 2),
+  marginLeft: -(size / 2),
+  borderRadius: size / 2,
+}))
