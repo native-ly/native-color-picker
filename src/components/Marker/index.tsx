@@ -10,7 +10,7 @@ import { MarkerProps } from '../../interfaces'
 
 import { checkColor } from '../../helpers'
 
-export const Marker = memo(
+export const Marker = memo<MarkerProps>(
   ({
     color,
     size,
@@ -21,7 +21,7 @@ export const Marker = memo(
     iconType = 'ionicons',
     style,
     ...props
-  }: MarkerProps) => {
+  }) => {
     const scaleValue = new Animated.Value(0)
     const rotateValue = new Animated.Value(1)
     const fadeValue = new Animated.Value(0)

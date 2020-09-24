@@ -5,7 +5,7 @@ import { LinearGradient } from '../imports'
 
 import { GradientProps } from '../interfaces'
 
-export const Gradient = memo(({ style, size, ...props }: GradientProps) => (
+export const Gradient = memo<GradientProps>(({ style, size, ...props }) => (
   <LinearGradient
     {...props}
     style={StyleSheet.flatten([style, gradientStyles({ size })])}

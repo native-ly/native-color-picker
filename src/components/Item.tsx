@@ -5,7 +5,7 @@ import { pickComponent } from '../helpers'
 
 import { ItemProps } from '../interfaces'
 
-export const Item: React.FC<ItemProps> = memo(
+export const Item = memo<ItemProps>(
   ({ color, itemSize, shadow, children, style, Component, ...props }) => {
     // TODO
     const Touchable: any = useMemo(() => pickComponent(Component), [])
