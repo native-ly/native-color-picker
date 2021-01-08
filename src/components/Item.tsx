@@ -7,8 +7,7 @@ import { ItemProps } from '../interfaces'
 
 export const Item = memo<ItemProps>(
   ({ color, itemSize, shadow, children, style, Component, ...props }) => {
-    // TODO
-    const Touchable: any = useMemo(() => pickComponent(Component), [])
+    const Touchable: any = useMemo(() => pickComponent(Component), []) // TODO
 
     return (
       <Touchable

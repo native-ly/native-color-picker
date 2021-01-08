@@ -35,6 +35,7 @@ const NativeColorPicker = ({
     numColumns={horizontal ? 1 : columns}
     testID="colors-grid"
     renderItem={({ item }: { readonly item: string }) => (
+      // TODO
       <Item
         {...itemProps}
         style={itemStyle}
