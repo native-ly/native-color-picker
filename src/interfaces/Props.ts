@@ -4,7 +4,8 @@ import {
   StyleProp,
   ViewStyle,
 } from 'react-native'
-import { LinearGradientProps } from 'expo-linear-gradient'
+
+import { LinearGradientProps } from '../imports'
 
 import { Animate, MarkerDisplay, MarkerType } from '../types'
 

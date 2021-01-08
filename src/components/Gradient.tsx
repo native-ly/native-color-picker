@@ -1,6 +1,7 @@
 import React from 'react'
 import { StyleSheet } from 'react-native'
-import { LinearGradient } from 'expo-linear-gradient'
+
+import { LinearGradient } from '../imports'
 
 import { GradientProps } from '../interfaces'
 
