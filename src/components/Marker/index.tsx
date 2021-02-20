@@ -32,6 +32,7 @@ export const Marker = memo<MarkerProps>(
       let accent: string
 
       if (markerDisplay === 'adjust') {
+        // @ts-ignore
         accent = checkColor(color) // TODO
       } else if (markerDisplay === 'contrast') {
         accent = Color(color).isDark() ? '#fff' : '#000'
@@ -98,17 +99,20 @@ export const Marker = memo<MarkerProps>(
         >
           {markerType === 'border' ? (
             // TODO
+            // @ts-ignore
             <BorderMarker size={size} color={colorValue} />
           ) : markerType === 'icon' ? (
             <Icon
               testID="icon-marker"
               type={iconType}
               name={iconName}
+              // @ts-ignore
               size={(size / 3) * 2} // TODO
               color={colorValue}
             />
           ) : (
             // TODO
+            // @ts-ignore
             markerType === 'fade' && <FadeMarker size={size} />
           )}
         </Animated.View>
