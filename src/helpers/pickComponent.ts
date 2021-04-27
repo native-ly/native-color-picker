@@ -5,9 +5,11 @@ import {
   TouchableOpacity,
 } from 'react-native'
 
-export const pickComponent = (Component?: React.ReactChildren) => {
+export const pickComponent = (
+  Component?: React.ReactChildren
+): React.ElementType => {
   return (
-    Component ||
-    (Platform.OS === 'android' ? TouchableNativeFeedback : TouchableOpacity)
+    // Component ||
+    Platform.OS === 'android' ? TouchableNativeFeedback : TouchableOpacity
   )
 }

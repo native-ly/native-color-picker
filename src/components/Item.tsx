@@ -7,7 +7,7 @@ import { ItemProps } from '../interfaces'
 
 export const Item = memo<ItemProps & { readonly children: React.ReactNode }>(
   ({ color, itemSize, shadow, children, style, Component, ...props }) => {
-    const Touchable: any = useMemo(() => pickComponent(Component), []) // TODO
+    const Touchable = useMemo(() => pickComponent(Component), [])
 
     return (
       <Touchable
