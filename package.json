@@ -1,6 +1,6 @@
 {
   "name": "native-color-picker",
-  "version": "2.0.0-alpha.6",
+  "version": "2.0.0-beta.1",
   "description": "Color picker for React Native",
   "author": "Jakub Biesiada",
   "license": "MIT",
@@ -36,7 +36,7 @@
   },
   "homepage": "https://github.com/native-ly/native-color-picker#readme",
   "dependencies": {
-    "color": "^3.1.2",
+    "color": "^3.1.3",
     "color-sort": "^0.0.1",
     "expo-linear-gradient": "^8.3.1",
     "native-icons": "^1.1.0",
