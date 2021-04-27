@@ -1,20 +1,21 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { StyleSheet } from 'react-native'
 
 import { LinearGradient } from '../imports'
 
 import { GradientProps } from '../interfaces'
 
-export const Gradient: React.FC<GradientProps> = ({ colors, style, size }) => (
+export const Gradient = memo<GradientProps>(({ style, size, ...props }) => (
   <LinearGradient
-    colors={colors}
-    style={StyleSheet.flatten([
-      style,
-      {
-        ...StyleSheet.absoluteFillObject,
-        borderRadius: size / 2,
-        zIndex: -1,
-      },
-    ])}
+    {...props}
+    style={StyleSheet.flatten([style, gradientStyles({ size })])}
   />
+))
+
+const gradientStyles = StyleSheet.create(
+  ({ size }: Pick<GradientProps, 'size'>) => ({
+    ...StyleSheet.absoluteFillObject,
+    borderRadius: size / 2,
+    zIndex: -1,
+  })
 )

@@ -1,11 +1,14 @@
 import { ViewProps } from 'react-native'
+import { FontType } from 'native-icons/lib/types/FontType'
 
-import { Animate, MarkerDisplay, MarkerType } from '../types'
+import type { Animate, MarkerDisplay, MarkerType } from '../types'
 
 export interface Marker extends ViewProps {
-  readonly animate?: Animate
   readonly color: string
   readonly size: number
-  readonly display: MarkerDisplay
-  readonly type: MarkerType
+  readonly animate?: Animate
+  readonly markerDisplay?: MarkerDisplay
+  readonly markerType?: MarkerType
+  readonly iconName?: string
+  readonly iconType?: FontType
 }

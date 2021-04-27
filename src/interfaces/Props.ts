@@ -1,30 +1,22 @@
-import {
-  FlatListProps,
-  TouchableOpacityProps,
-  StyleProp,
-  ViewStyle,
-} from 'react-native'
+import { FlatListProps, StyleProp, ViewStyle } from 'react-native'
 
-import { LinearGradientProps } from '../imports'
-
-import { Animate, MarkerDisplay, MarkerType } from '../types'
+import { ItemProps, MarkerProps, GradientProps } from '.'
 
 export interface Props
   extends Omit<FlatListProps<string>, 'data' | 'renderItem'> {
-  readonly animate?: Animate
   readonly colors: string[]
   readonly columns?: number
   readonly gradient?: boolean
   readonly horizontal?: boolean
   readonly itemSize?: number
-  readonly markerDisplay?: MarkerDisplay
-  readonly markerType?: MarkerType
-  readonly onSelect?: (item: string) => void
+  onSelect?: (item: string) => void
   readonly selectedColor?: string
   readonly shadow?: boolean
   readonly sort?: boolean
-  readonly itemProps?: TouchableOpacityProps
+  readonly itemProps?: ItemProps
   readonly itemStyle?: StyleProp<ViewStyle>
-  readonly linearGradientProps?: LinearGradientProps
+  readonly markerProps?: MarkerProps
+  readonly markerStyle?: StyleProp<ViewStyle>
+  readonly linearGradientProps?: GradientProps
   readonly linearGradientStyle?: StyleProp<ViewStyle>
 }

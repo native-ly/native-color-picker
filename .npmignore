@@ -1,5 +1,8 @@
 src
 assets
+__tests__
+coverage
+.jest
 
 tsconfig.json
 .travis.yml
@@ -7,6 +10,6 @@ tsconfig.json
 
 .eslintrc.js
 global.d.ts
-rollup.config.js
 yarn-error.log
-.rpt2_cache
+babel.config.js
+jest.config.js
