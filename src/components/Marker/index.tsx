@@ -100,7 +100,7 @@ export const Marker = memo<MarkerProps>(
             <BorderMarker size={size} color={colorValue} />
           ) : markerType === 'icon' ? (
             <Icon
-              testId="icon-marker"
+              testID="icon-marker"
               type={iconType}
               name={iconName}
               size={(size / 3) * 2}
