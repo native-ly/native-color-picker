@@ -1,5 +1,1 @@
-import LinearGradient, {
-  LinearGradientProps,
-} from 'react-native-linear-gradient'
-
-export { LinearGradient, LinearGradientProps }
+export { LinearGradient, LinearGradientProps } from 'expo-linear-gradient'
