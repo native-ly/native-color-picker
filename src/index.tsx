@@ -16,7 +16,6 @@ const NativeColorPicker = ({
   horizontal = false,
   itemSize = 44,
   onSelect,
-  selectedColor,
   shadow = false,
   sort = false,
   itemProps,
@@ -27,47 +26,56 @@ const NativeColorPicker = ({
   linearGradientStyle,
   multiSelect,
   ...props
-}: Props) => (
-  <FlatList
-    {...props}
-    data={sort ? colorSort(colors) : colors}
-    horizontal={horizontal}
-    keyExtractor={(index) => index.toString()}
-    numColumns={horizontal ? 1 : columns}
-    testID="colors-grid"
-    renderItem={({ item }: { readonly item: string }) => (
-      <Item
-        {...itemProps}
-        style={itemStyle}
-        color={item}
-        itemSize={itemSize}
-        onPress={() => onSelect?.(item)}
-        shadow={shadow}
-        testID="color-item"
-      >
-        {/* TODO selectedColors.includes(item) */}
-        {selectedColor === item && (
-          <Marker
-            {...markerProps}
-            style={markerStyle}
-            color={item}
-            size={itemSize}
-            testID="current-color-marker" // TODO make unique when multiSelect
-          />
-        )}
+}: Props) => {
+  const handleColorSelect = () => {}
 
-        {gradient && (
-          <Gradient
-            {...linearGradientProps}
-            style={linearGradientStyle}
-            colors={Color(item).isDark() ? darker(item) : lighter(item)}
-            testID="item-gradient"
-            size={itemSize}
-          />
-        )}
-      </Item>
-    )}
-  />
-)
+  return (
+    <FlatList
+      {...props}
+      data={sort ? colorSort(colors) : colors}
+      horizontal={horizontal}
+      keyExtractor={(index) => index.toString()}
+      numColumns={horizontal ? 1 : columns}
+      testID="colors-grid"
+      renderItem={({ item: color }: { readonly item: string }) => {
+        const isSelectedItem = multiSelect
+          ? props.selectedColors.includes(color)
+          : props.selectedColor === color
+
+        return (
+          <Item
+            {...itemProps}
+            style={itemStyle}
+            color={color}
+            itemSize={itemSize}
+            onPress={() => onSelect?.(color)}
+            shadow={shadow}
+            testID="color-item"
+          >
+            {isSelectedItem && (
+              <Marker
+                {...markerProps}
+                style={markerStyle}
+                color={color}
+                size={itemSize}
+                testID="current-color-marker" // TODO make unique when multiSelect
+              />
+            )}
+
+            {gradient && (
+              <Gradient
+                {...linearGradientProps}
+                style={linearGradientStyle}
+                colors={Color(color).isDark() ? darker(color) : lighter(color)}
+                testID="item-gradient"
+                size={itemSize}
+              />
+            )}
+          </Item>
+        )
+      }}
+    />
+  )
+}
 
 export default NativeColorPicker
