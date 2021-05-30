@@ -31,7 +31,7 @@ const NativeColorPicker = ({
     {...props}
     data={sort ? colorSort(colors) : colors}
     horizontal={horizontal}
-    keyExtractor={(index) => index.toString()}
+    // keyExtractor={(index) => index.toString()}
     numColumns={horizontal ? 1 : columns}
     testID="colors-grid"
     renderItem={({ item }: { readonly item: string }) => (
