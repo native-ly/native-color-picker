@@ -2,6 +2,7 @@ import { FlatListProps, StyleProp, ViewStyle } from 'react-native'
 
 import { ItemProps, MarkerProps, GradientProps } from '.'
 
+// TODO
 export interface Props
   extends Omit<FlatListProps<string>, 'data' | 'renderItem'> {
   readonly colors: string[]
@@ -19,4 +20,17 @@ export interface Props
   readonly markerStyle?: StyleProp<ViewStyle>
   readonly linearGradientProps?: GradientProps
   readonly linearGradientStyle?: StyleProp<ViewStyle>
+  readonly multiSelect?: boolean
+}
+
+// TODO
+type SingleSelect = {
+  readonly selectedColor?: string
+  readonly multiSelect?: false
+}
+
+// TODO
+type MultiSelect = {
+  readonly selectedColors?: string[]
+  readonly multiSelect?: true
 }

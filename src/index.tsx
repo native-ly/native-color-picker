@@ -25,6 +25,7 @@ const NativeColorPicker = ({
   markerStyle,
   linearGradientProps,
   linearGradientStyle,
+  multiSelect,
   ...props
 }: Props) => (
   <FlatList
@@ -44,13 +45,14 @@ const NativeColorPicker = ({
         shadow={shadow}
         testID="color-item"
       >
+        {/* TODO selectedColors.includes(item) */}
         {selectedColor === item && (
           <Marker
             {...markerProps}
             style={markerStyle}
             color={item}
             size={itemSize}
-            testID="current-color-marker"
+            testID="current-color-marker" // TODO make unique when multiSelect
           />
         )}
 
