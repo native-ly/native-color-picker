@@ -41,7 +41,7 @@ const NativeColorPicker = ({
         color={item}
         itemSize={itemSize}
         onPress={() => onSelect?.(item)}
-        shadow={shadow}
+        shadow={[true, 'offset', 'both'].includes(shadow)}
         testID="color-item"
       >
         {selectedColor === item && (
@@ -53,6 +53,10 @@ const NativeColorPicker = ({
             testID="current-color-marker"
           />
         )}
+
+        {/* {['inset', 'both'].includes(shadow) && (
+          // TODO
+        )} */}
 
         {gradient && (
           <Gradient
