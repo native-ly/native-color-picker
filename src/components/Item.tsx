@@ -1,5 +1,5 @@
 import React, { useMemo, memo } from 'react'
-import { StyleSheet } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 
 import { pickComponent } from '../helpers'
 
@@ -7,19 +7,27 @@ import { ItemProps } from '../interfaces'
 
 export const Item = memo<ItemProps & { readonly children: React.ReactNode }>(
   ({ color, itemSize, shadow, children, style, Component, ...props }) => {
-    const Touchable = useMemo(() => pickComponent(Component), [Component])
+    const Touchable = useMemo(() => pickComponent(Component), [])
 
     return (
-      <Touchable
-        {...props}
-        style={StyleSheet.flatten([
-          style,
-          itemStyles({ color, itemSize }),
-          shadow && shadowStyles({ color }),
-        ])}
+      <View
+        style={{
+          width: itemSize,
+          height: itemSize,
+          // padding: itemSize
+        }}
       >
-        {children}
-      </Touchable>
+        <Touchable
+          {...props}
+          style={StyleSheet.flatten([
+            style,
+            itemStyles({ color, itemSize }),
+            shadow && shadowStyles({ color }),
+          ])}
+        >
+          {children}
+        </Touchable>
+      </View>
     )
   }
 )
@@ -28,9 +36,11 @@ const itemStyles = StyleSheet.create(
   ({ color, itemSize }: Pick<ItemProps, 'color' | 'itemSize'>) => ({
     backgroundColor: color,
     borderRadius: itemSize / 2,
-    margin: itemSize / 4,
-    width: itemSize,
-    height: itemSize,
+    // margin: itemSize / 4,
+    // width: itemSize,
+    // height: itemSize,
+    width: '100%',
+    height: '100%',
   })
 )
 

@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect, memo, useMemo } from 'react'
+import React, { useState, useCallback, useEffect, memo } from 'react'
 import { View, Animated, StyleSheet } from 'react-native'
 import Icon from 'native-icons'
 import Color from 'color'
@@ -22,9 +22,9 @@ export const Marker = memo<MarkerProps>(
     style,
     ...props
   }) => {
-    const scaleValue = useMemo(() => new Animated.Value(0), [])
-    const rotateValue = useMemo(() => new Animated.Value(1), [])
-    const fadeValue = useMemo(() => new Animated.Value(0), [])
+    const scaleValue = new Animated.Value(0)
+    const rotateValue = new Animated.Value(1)
+    const fadeValue = new Animated.Value(0)
 
     const [colorValue, setColorValue] = useState(color)
 
@@ -40,7 +40,7 @@ export const Marker = memo<MarkerProps>(
       }
 
       setColorValue(accent)
-    }, [color, markerDisplay])
+    }, [])
 
     const opacity = useCallback(() => {
       Animated.timing(scaleValue, {
@@ -52,7 +52,7 @@ export const Marker = memo<MarkerProps>(
       return animate && (markerType === 'icon' || markerType === 'border')
         ? fadeValue
         : 1
-    }, [animate, fadeValue, markerType, scaleValue])
+    }, [])
 
     const scale = useCallback(() => {
       Animated.timing(rotateValue, {
@@ -68,7 +68,7 @@ export const Marker = memo<MarkerProps>(
             ? scaleValue
             : 1,
       }
-    }, [animate, markerType, rotateValue, scaleValue])
+    }, [])
 
     const rotate = useCallback(() => {
       Animated.timing(fadeValue, {
@@ -86,7 +86,7 @@ export const Marker = memo<MarkerProps>(
               })
             : '0deg',
       }
-    }, [animate, fadeValue, markerType, rotateValue])
+    }, [])
 
     return (
       <View {...props} style={StyleSheet.flatten([style, styles.wrapper])}>
@@ -100,7 +100,7 @@ export const Marker = memo<MarkerProps>(
             <BorderMarker size={size} color={colorValue} />
           ) : markerType === 'icon' ? (
             <Icon
-              testID="icon-marker"
+              testId="icon-marker"
               type={iconType}
               name={iconName}
               size={(size / 3) * 2}
