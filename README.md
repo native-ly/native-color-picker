@@ -8,7 +8,7 @@
 [![Travis](https://img.shields.io/travis/com/native-ly/native-color-picker/main?style=flat-square)](https://travis-ci.com/native-ly/native-color-picker)
 
 <p align="center">
-  <img width="420" src="https://raw.githubusercontent.com/native-ly/native-color-picker/main/assets/preview.jpg">
+  <img width="420" src="https://raw.githubusercontent.com/native-ly/native-color-picker/main/assets/preview.jpg" alt="Native Color Picker">
 </p>
 
 ## About
