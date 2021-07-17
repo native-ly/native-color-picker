@@ -14,7 +14,8 @@ export const Item = ({
   Component,
   ...props
 }: ItemProps & { readonly children: React.ReactNode }) => {
-  const Touchable = useMemo(() => pickComponent(Component), [])
+  // TODO update type
+  const Touchable = useMemo(() => pickComponent(Component), [Component])
 
   return (
     <View style={{ width: itemSize, height: itemSize }}>

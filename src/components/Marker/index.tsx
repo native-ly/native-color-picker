@@ -99,7 +99,8 @@ export const Marker = ({
           <BorderMarker size={size} color={colorValue} />
         ) : markerType === 'icon' ? (
           <Icon
-            testId="icon-marker"
+            // TODO
+            // testId="icon-marker"
             type={iconType}
             name={iconName}
             size={(size / 3) * 2}

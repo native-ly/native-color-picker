@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { FlatList } from 'react-native'
+import React, { useCallback, useState } from 'react'
+import { FlatList, LayoutChangeEvent } from 'react-native'
 import colorSort from 'color-sort'
 import Color from 'color'
 
@@ -8,6 +8,8 @@ import { Props } from './interfaces'
 import { Item, Marker, Gradient } from './components'
 
 import { lighter, darker } from './helpers'
+
+type HandleLayoutCallback = (e: LayoutChangeEvent) => void
 
 const NativeColorPicker = ({
   colors,
@@ -29,16 +31,21 @@ const NativeColorPicker = ({
 }: Props) => {
   const [size, setSize] = useState(itemSize)
 
+  const handleLayout = useCallback<HandleLayoutCallback>(
+    (e) => {
+      props.onLayout?.(e)
+
+      const { width } = e.nativeEvent.layout
+
+      setSize(width / columns)
+    },
+    [columns, props]
+  )
+
   return (
     <FlatList
       {...props}
-      onLayout={(e) => {
-        props.onLayout?.(e)
-
-        const { width } = e.nativeEvent.layout
-
-        setSize(width / columns)
-      }}
+      onLayout={handleLayout}
       data={sort ? colorSort(colors) : colors}
       horizontal={horizontal}
       keyExtractor={(item) => item}
