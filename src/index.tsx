@@ -18,7 +18,6 @@ const NativeColorPicker = ({
   horizontal = false,
   itemSize = 44,
   onSelect,
-  selectedColor,
   shadow = false,
   sort = false,
   itemProps,
@@ -27,9 +26,12 @@ const NativeColorPicker = ({
   markerStyle,
   linearGradientProps,
   linearGradientStyle,
+  multiSelect,
   ...props
 }: Props) => {
   const [size, setSize] = useState(itemSize)
+
+  const handleColorSelect = () => {}
 
   const handleLayout = useCallback<HandleLayoutCallback>(
     (e) => {
@@ -51,38 +53,44 @@ const NativeColorPicker = ({
       keyExtractor={(item) => item}
       numColumns={horizontal ? 1 : columns}
       testID="colors-grid"
-      renderItem={({ item }: { readonly item: string }) => (
-        <Item
-          {...itemProps}
-          // style={itemStyle}
-          color={item}
-          // TODO rename to size
-          itemSize={size}
-          onPress={() => onSelect?.(item)}
-          shadow={shadow}
-          testID="color-item"
-        >
-          {selectedColor === item && (
-            <Marker
-              {...markerProps}
-              style={markerStyle}
-              color={item}
-              size={size}
-              testID="current-color-marker"
-            />
-          )}
+      renderItem={({ item: color }: { readonly item: string }) => {
+        const isSelectedItem = multiSelect
+          ? props.selectedColors.includes(color)
+          : props.selectedColor === color
 
-          {gradient && (
-            <Gradient
-              {...linearGradientProps}
-              style={linearGradientStyle}
-              colors={Color(item).isDark() ? darker(item) : lighter(item)}
-              testID="item-gradient"
-              size={size}
-            />
-          )}
-        </Item>
-      )}
+        return (
+          <Item
+            {...itemProps}
+            // style={itemStyle}
+            color={item}
+            // TODO rename to size
+            itemSize={size}
+            onPress={() => onSelect?.(color)}
+            shadow={shadow}
+            testID="color-item"
+          >
+            {isSelectedItem && (
+              <Marker
+                {...markerProps}
+                style={markerStyle}
+                color={color}
+                size={size}
+                testID="current-color-marker"
+              />
+            )}
+
+            {gradient && (
+              <Gradient
+                {...linearGradientProps}
+                style={linearGradientStyle}
+                colors={Color(color).isDark() ? darker(color) : lighter(color)}
+                testID="item-gradient"
+                size={size}
+              />
+            )}
+          </Item>
+        )
+      }}
     />
   )
 }
