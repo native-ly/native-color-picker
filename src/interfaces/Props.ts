@@ -2,10 +2,18 @@ import { FlatListProps, StyleProp, ViewStyle } from 'react-native'
 
 import { ItemProps, MarkerProps, GradientProps } from '.'
 
+interface ColorSchema {
+  color: string
+  readOnly?: boolean
+  selectionMode?: any
+  gradient?: boolean
+  shadow?: boolean
+}
+
 // TODO
 export interface Props
   extends Omit<FlatListProps<string>, 'data' | 'renderItem'> {
-  readonly colors: string[]
+  readonly colors: ColorSchema[]
   readonly columns?: number
   readonly gradient?: boolean
   readonly horizontal?: boolean
