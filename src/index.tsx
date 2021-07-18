@@ -1,5 +1,5 @@
-import React from 'react'
-import { FlatList } from 'react-native'
+import React, { useCallback, useState } from 'react'
+import { FlatList, LayoutChangeEvent } from 'react-native'
 import colorSort from 'color-sort'
 import Color from 'color'
 
@@ -9,6 +9,8 @@ import { Item, Marker, Gradient } from './components'
 
 import { lighter, darker } from './helpers'
 
+type HandleLayoutCallback = (e: LayoutChangeEvent) => void
+
 const NativeColorPicker = ({
   colors,
   columns = 5,
@@ -16,7 +18,6 @@ const NativeColorPicker = ({
   horizontal = false,
   itemSize = 44,
   onSelect,
-  selectedColor,
   shadow = false,
   sort = false,
   itemProps,
@@ -25,51 +26,77 @@ const NativeColorPicker = ({
   markerStyle,
   linearGradientProps,
   linearGradientStyle,
+  multiSelect,
   ...props
-}: Props) => (
-  <FlatList
-    {...props}
-    data={sort ? colorSort(colors) : colors}
-    horizontal={horizontal}
-    keyExtractor={(index) => index.toString()}
-    numColumns={horizontal ? 1 : columns}
-    testID="colors-grid"
-    renderItem={({ item }: { readonly item: string }) => (
-      <Item
-        {...itemProps}
-        style={itemStyle}
-        color={item}
-        itemSize={itemSize}
-        onPress={() => onSelect?.(item)}
-        shadow={[true, 'offset', 'both'].includes(shadow)}
-        testID="color-item"
-      >
-        {selectedColor === item && (
-          <Marker
-            {...markerProps}
-            style={markerStyle}
-            color={item}
-            size={itemSize}
-            testID="current-color-marker"
-          />
-        )}
+}: Props) => {
+  const [size, setSize] = useState(itemSize)
 
-        {/* {['inset', 'both'].includes(shadow) && (
+  const handleColorSelect = () => {}
+
+  const handleLayout = useCallback<HandleLayoutCallback>(
+    (e) => {
+      props.onLayout?.(e)
+
+      const { width } = e.nativeEvent.layout
+
+      setSize(width / columns)
+    },
+    [columns, props]
+  )
+
+  return (
+    <FlatList
+      {...props}
+      onLayout={handleLayout}
+      data={sort ? colorSort(colors) : colors}
+      horizontal={horizontal}
+      keyExtractor={(item) => item}
+      numColumns={horizontal ? 1 : columns}
+      testID="colors-grid"
+      renderItem={({ item: color }: { readonly item: string }) => {
+        const isSelectedItem = multiSelect
+          ? props.selectedColors.includes(color)
+          : props.selectedColor === color
+
+        return (
+          <Item
+            {...itemProps}
+            // style={itemStyle}
+            color={item}
+            // TODO rename to size
+            itemSize={size}
+            onPress={() => onSelect?.(color)}
+            shadow={[true, 'offset', 'both'].includes(shadow)}
+            testID="color-item"
+          >
+            {isSelectedItem && (
+              <Marker
+                {...markerProps}
+                style={markerStyle}
+                color={color}
+                size={size}
+                testID="current-color-marker"
+              />
+            )}
+
+            {/* {['inset', 'both'].includes(shadow) && (
           // TODO
         )} */}
 
-        {gradient && (
-          <Gradient
-            {...linearGradientProps}
-            style={linearGradientStyle}
-            colors={Color(item).isDark() ? darker(item) : lighter(item)}
-            testID="item-gradient"
-            size={itemSize}
-          />
-        )}
-      </Item>
-    )}
-  />
-)
+            {gradient && (
+              <Gradient
+                {...linearGradientProps}
+                style={linearGradientStyle}
+                colors={Color(color).isDark() ? darker(color) : lighter(color)}
+                testID="item-gradient"
+                size={size}
+              />
+            )}
+          </Item>
+        )
+      }}
+    />
+  )
+}
 
 export default NativeColorPicker
