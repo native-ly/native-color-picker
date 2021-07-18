@@ -12,13 +12,14 @@ export const BorderMarker = (props: Props) => (
   <View testID="border-marker" style={markerStyles(props)} />
 )
 
+// TODO add helper for (size / 2 - 2)
 const markerStyles = StyleSheet.create(({ size, color }: Props) => ({
   ...StyleSheet.absoluteFillObject,
-  marginTop: -(size / 2 - 2),
-  marginLeft: -(size / 2 - 2),
-  borderRadius: (size - 2 * countSize(size)) / 2,
+  marginTop: -(size / 2 - 2), // TODO update
+  marginLeft: -(size / 2 - 2), // TODO update
+  borderRadius: (size - 2 * countSize(size)) / 2, // TODO update
   borderWidth: countSize(size),
   borderColor: color,
-  width: size - 4,
-  height: size - 4,
+  width: size - 4, // TODO update
+  height: size - 4, // TODO update
 }))

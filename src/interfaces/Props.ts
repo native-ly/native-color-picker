@@ -4,33 +4,57 @@ import { ItemProps, MarkerProps, GradientProps } from '.'
 
 type Shadow = 'inset' | 'offset' | 'both'
 
-interface ColorSchema {
-  readonly color: string
+interface Item {
+  readonly itemProps?: ItemProps
+  readonly itemStyle?: StyleProp<ViewStyle>
+}
+
+interface Marker {
+  readonly markerProps?: MarkerProps
+  readonly markerStyle?: StyleProp<ViewStyle>
+}
+
+interface Gradient {
+  // readonly gradient: true
+  readonly gradientProps?: GradientProps
+  readonly gradientStyle?: StyleProp<ViewStyle>
+}
+
+// interface ReadOnly {
+// readonly readOnly: boolean
+// }
+
+interface BaseType extends Item, Marker, Gradient {
+  // readonly gradient?: boolean
   readonly readOnly?: boolean
-  // readonly selectionMode?: any
-  readonly gradient?: boolean
-  readonly shadow?: boolean
+  readonly shadow?: Shadow | boolean
+}
+
+interface ColorSchema extends BaseType {
+  readonly color: string
+  // readonly gradient?: boolean
+  // readonly shadow?: boolean
 }
 
 export type Colors = string[] | ColorSchema[]
 
 // TODO
-interface BaseProps extends Omit<FlatListProps<any>, 'data' | 'renderItem'> {
+interface BaseProps
+  extends Omit<FlatListProps<any>, 'data' | 'renderItem'>,
+    BaseType {
   // interface BaseProps extends Omit<FlatListProps<Colors>, 'data' | 'renderItem'> {
   readonly colors: Colors
   readonly columns?: number
-  readonly gradient?: boolean
   readonly horizontal?: boolean
-  readonly itemSize?: number
-  readonly selectedColor?: string
-  readonly shadow?: Shadow | boolean
   readonly sort?: boolean
-  readonly itemProps?: ItemProps
-  readonly itemStyle?: StyleProp<ViewStyle>
-  readonly markerProps?: MarkerProps
-  readonly markerStyle?: StyleProp<ViewStyle>
-  readonly linearGradientProps?: GradientProps
-  readonly linearGradientStyle?: StyleProp<ViewStyle>
+
+  // readonly gradient?: boolean // TODO
+  // readonly itemSize?: number // TODO
+  // readonly selectedColor?: string
+
+  // readonly readOnly?: boolean
+
+  // readonly shadow?: Shadow | boolean // TODO
 }
 
 // TODO
@@ -45,16 +69,19 @@ interface MultiSelect {
   readonly multiSelect?: true
 }
 
-interface ReadOnly {
-  readonly readOnly: true
-}
+// interface ReadOnly {
+// readonly readOnly: true
+// }
+//
+// interface Writable {
+// readonly readOnly: false
+// onSelect?: (item: string) => void
+// readonly multiSelect?: boolean
+// }
 
-interface Writable {
-  readonly readOnly: false
-  onSelect?: (item: string) => void
-  readonly multiSelect?: boolean
-}
+type SelectionType = SingleSelect | MultiSelect
 
-export type Props = BaseProps &
-  (SingleSelect | MultiSelect) &
-  (ReadOnly | Writable)
+// type AccessType = ReadOnly | Writable
+
+export type Props = BaseProps & SelectionType
+//  & AccessType

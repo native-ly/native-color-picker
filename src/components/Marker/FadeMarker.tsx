@@ -11,10 +11,10 @@ export const FadeMarker = (props: Props) => (
 
 const markerStyles = StyleSheet.create(({ size }: Props) => ({
   ...StyleSheet.absoluteFillObject,
-  backgroundColor: '#fff8',
-  marginTop: -(size / 2),
-  marginLeft: -(size / 2),
-  borderRadius: size / 2,
+  backgroundColor: '#fff8', // TODO update
+  marginTop: -(size / 2), // TODO update
+  marginLeft: -(size / 2), // TODO update
+  borderRadius: size / 2, // TODO update
   width: size,
   height: size,
 }))

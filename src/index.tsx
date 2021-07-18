@@ -5,10 +5,9 @@ import Color from 'color'
 
 import { Props } from './interfaces'
 
-import { Item, Marker, Gradient } from './components'
+import { Item, Marker, InsetShadow, Gradient } from './components'
 
 import { lighter, darker } from './helpers'
-import { InsetShadow } from './components/InsetShadow'
 import { Colors } from './interfaces/Props'
 
 type HandleLayoutCallback = (e: LayoutChangeEvent) => void
@@ -31,8 +30,9 @@ const NativeColorPicker = ({
 }: Props) => {
   const [size, setSize] = useState(itemSize)
 
-  // TODO
-  // TODO callback
+  // TODO? add local selected items
+
+  // TODO refactor + types to HandleColorSelectCallback
   const handleColorSelect = useCallback(
     (color: Colors[number]) => {
       if (props.readOnly) {
@@ -76,7 +76,7 @@ const NativeColorPicker = ({
           : lighter(color)
 
         const isSelectedItem = props.multiSelect
-          ? (props.selectedColors || []).includes(color)
+          ? (props.selectedColors || []).includes(color) // TODO refactor
           : props.selectedColor === color
 
         const offsetShadow = [true, 'offset', 'both']

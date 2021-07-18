@@ -15,7 +15,7 @@ export const Gradient = ({ style, size, ...props }: GradientProps) => (
 const gradientStyles = StyleSheet.create(
   ({ size }: Pick<GradientProps, 'size'>) => ({
     ...StyleSheet.absoluteFillObject,
-    borderRadius: size / 2,
+    borderRadius: size / 2, // TODO?
     zIndex: -1,
   })
 )

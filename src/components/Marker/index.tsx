@@ -31,15 +31,15 @@ export const Marker = ({
   const opacity = useSharedValue(0)
 
   scale.value = withTiming(0, {
-    duration: 300,
+    duration: 300, // TODO move to const
   })
 
   rotate.value = withTiming(0, {
-    duration: 300,
+    duration: 300, // TODO move to const
   })
 
   opacity.value = withTiming(0, {
-    duration: 300,
+    duration: 300, // TODO move to const
   })
 
   // TODO
@@ -78,7 +78,7 @@ export const Marker = ({
             // testId="icon-marker"
             type={iconType}
             name={iconName}
-            size={(size / 3) * 2}
+            size={(size / 3) * 2} // TODO update
             color={colorValue}
           />
         )
