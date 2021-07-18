@@ -8,8 +8,8 @@ interface Props {
   readonly color: string
 }
 
-export const BorderMarker = ({ size, color }: Props) => (
-  <View testID="border-marker" style={markerStyles({ size, color })} />
+export const BorderMarker = (props: Props) => (
+  <View testID="border-marker" style={markerStyles(props)} />
 )
 
 const markerStyles = StyleSheet.create(({ size, color }: Props) => ({

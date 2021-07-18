@@ -8,6 +8,8 @@ import { Props } from './interfaces'
 import { Item, Marker, Gradient } from './components'
 
 import { lighter, darker } from './helpers'
+import { InsetShadow } from './components/InsetShadow'
+import { Colors } from './interfaces/Props'
 
 type HandleLayoutCallback = (e: LayoutChangeEvent) => void
 
@@ -17,7 +19,6 @@ const NativeColorPicker = ({
   gradient = false,
   horizontal = false,
   itemSize = 44,
-  onSelect,
   shadow = false,
   sort = false,
   itemProps,
@@ -26,12 +27,22 @@ const NativeColorPicker = ({
   markerStyle,
   linearGradientProps,
   linearGradientStyle,
-  multiSelect,
   ...props
 }: Props) => {
   const [size, setSize] = useState(itemSize)
 
-  const handleColorSelect = () => {}
+  // TODO
+  // TODO callback
+  const handleColorSelect = useCallback(
+    (color: Colors[number]) => {
+      if (props.readOnly) {
+        return
+      }
+
+      props.onSelect?.(color)
+    },
+    [props]
+  )
 
   const handleLayout = useCallback<HandleLayoutCallback>(
     (e) => {
@@ -53,20 +64,32 @@ const NativeColorPicker = ({
       keyExtractor={(item) => item}
       numColumns={horizontal ? 1 : columns}
       testID="colors-grid"
-      renderItem={({ item: color }: { readonly item: string }) => {
-        const isSelectedItem = multiSelect
-          ? props.selectedColors.includes(color)
+      // TODO? move to separate component
+      renderItem={({ item }: { readonly item: string }) => {
+        // const color = typeof item === "string" ? item.color || item
+        const color = item.color || item
+        const hasGradient = item.gradient || gradient
+        const shadowType = item.shadow || shadow
+
+        const gradientColor = Color(color).isDark()
+          ? darker(color)
+          : lighter(color)
+
+        const isSelectedItem = props.multiSelect
+          ? (props.selectedColors || []).includes(color)
           : props.selectedColor === color
+
+        const offsetShadow = [true, 'offset', 'both']
+        const insetShadow = ['inset', 'both']
 
         return (
           <Item
             {...itemProps}
-            // style={itemStyle}
-            color={item}
-            // TODO rename to size
-            itemSize={size}
-            onPress={() => onSelect?.(color)}
-            shadow={[true, 'offset', 'both'].includes(shadow)}
+            style={itemStyle} // TODO?
+            color={color}
+            size={size}
+            onPress={() => handleColorSelect(color)} // TODO
+            shadow={offsetShadow.includes(shadowType)}
             testID="color-item"
           >
             {isSelectedItem && (
@@ -79,15 +102,14 @@ const NativeColorPicker = ({
               />
             )}
 
-            {/* {['inset', 'both'].includes(shadow) && (
-          // TODO
-        )} */}
+            {/* TODO */}
+            {insetShadow.includes(shadowType) && <InsetShadow />}
 
-            {gradient && (
+            {hasGradient && (
               <Gradient
                 {...linearGradientProps}
                 style={linearGradientStyle}
-                colors={Color(color).isDark() ? darker(color) : lighter(color)}
+                colors={gradientColor}
                 testID="item-gradient"
                 size={size}
               />

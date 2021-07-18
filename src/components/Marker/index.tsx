@@ -42,6 +42,7 @@ export const Marker = ({
     duration: 300,
   })
 
+  // TODO
   // const animatedStyles = useAnimatedStyle(() => {
   //   return {
   //     transform: [
@@ -94,10 +95,11 @@ export const Marker = ({
   return (
     <View {...props} style={StyleSheet.flatten([style, styles.wrapper])}>
       <Animated.View
-        style={{
-          transform: [scale, rotate],
-          // opacity,
-        }}
+      // TODO
+      // style={{
+      //   transform: [scale, rotate],
+      //   // opacity,
+      // }}
       >
         {marker}
       </Animated.View>

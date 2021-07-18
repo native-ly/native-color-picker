@@ -5,25 +5,25 @@ import { pickComponent } from '../helpers'
 
 import { ItemProps } from '../interfaces'
 
-export const Item = ({
+export const Item: React.FC<ItemProps> = ({
   color,
-  itemSize,
+  size,
   shadow,
   children,
   style,
   Component,
   ...props
-}: ItemProps & { readonly children: React.ReactNode }) => {
+}) => {
   // TODO update type
   const Touchable = useMemo(() => pickComponent(Component), [Component])
 
   return (
-    <View style={{ width: itemSize, height: itemSize }}>
+    <View style={{ width: size, height: size }}>
       <Touchable
         {...props}
         style={StyleSheet.flatten([
           style,
-          itemStyles({ color, itemSize }),
+          itemStyles({ color, size }),
           shadow && shadowStyles({ color }),
         ])}
       >
@@ -34,9 +34,9 @@ export const Item = ({
 }
 
 const itemStyles = StyleSheet.create(
-  ({ color, itemSize }: Pick<ItemProps, 'color' | 'itemSize'>) => ({
+  ({ color, size }: Pick<ItemProps, 'color' | 'size'>) => ({
     backgroundColor: color,
-    borderRadius: itemSize / 2,
+    borderRadius: size / 2,
     width: '100%',
     height: '100%',
   })

@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
 } from 'react-native'
 
+// TODO return type
 export const pickComponent = (
   Component?: React.ReactChildren
 ): React.ElementType => {

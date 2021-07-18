@@ -8,7 +8,7 @@ export interface Item
   extends TouchableOpacityProps,
     TouchableNativeFeedbackProps {
   readonly color: string
-  readonly itemSize: number
+  readonly size: number
   readonly shadow: boolean
   readonly Component?: React.ReactChildren
 }

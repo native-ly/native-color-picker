@@ -5,8 +5,8 @@ interface Props {
   readonly size: number
 }
 
-export const FadeMarker = ({ size }: Props) => (
-  <View testID="fade-marker" style={markerStyles({ size })} />
+export const FadeMarker = (props: Props) => (
+  <View testID="fade-marker" style={markerStyles(props)} />
 )
 
 const markerStyles = StyleSheet.create(({ size }: Props) => ({
