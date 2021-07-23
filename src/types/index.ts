@@ -1,3 +1,4 @@
-export type { Animate } from './Animate'
-export type { MarkerType } from './MarkerType'
-export type { MarkerDisplay } from './MarkerDisplay'
+export type { Gradient as GradientProps } from './Gradient'
+export type { Item as ItemProps } from './Item'
+export type { Marker as MarkerProps } from './Marker'
+export type { Props } from './Props'

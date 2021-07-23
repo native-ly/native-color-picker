@@ -1,7 +1,9 @@
 import { ViewProps } from 'react-native'
-import { FontType } from 'native-icons/lib/types/FontType'
+import { FontType } from 'native-icons'
 
-import type { Animate, MarkerDisplay, MarkerType } from '../types'
+type Animate = 'scale' | 'rotate'
+type MarkerDisplay = 'adjust' | 'contrast' | string
+type MarkerType = 'border' | 'icon' | 'fade' | 'none'
 
 export interface Marker extends ViewProps {
   readonly color: string

@@ -5,11 +5,11 @@ import {
   TouchableOpacity,
 } from 'react-native'
 
+// TODO return type
 export const pickComponent = (
   Component?: React.ReactChildren
 ): React.ElementType => {
-  return (
-    // Component ||
-    Platform.OS === 'android' ? TouchableNativeFeedback : TouchableOpacity
-  )
+  return Component || Platform.OS === 'android'
+    ? TouchableNativeFeedback
+    : TouchableOpacity
 }

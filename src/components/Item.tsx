@@ -1,36 +1,44 @@
-import React, { useMemo, memo } from 'react'
-import { StyleSheet } from 'react-native'
+import React, { useMemo } from 'react'
+import { StyleSheet, View } from 'react-native'
 
 import { pickComponent } from '../helpers'
 
 import { ItemProps } from '../interfaces'
 
-export const Item = memo<ItemProps & { readonly children: React.ReactNode }>(
-  ({ color, itemSize, shadow, children, style, Component, ...props }) => {
-    const Touchable = useMemo(() => pickComponent(Component), [Component])
+export const Item: React.FC<ItemProps> = ({
+  color,
+  size,
+  shadow,
+  children,
+  style,
+  Component,
+  ...props
+}) => {
+  // TODO update type
+  const Touchable = useMemo(() => pickComponent(Component), [Component])
 
-    return (
+  return (
+    <View style={{ width: size, height: size }}>
       <Touchable
         {...props}
         style={StyleSheet.flatten([
           style,
-          itemStyles({ color, itemSize }),
+          itemStyles({ color, size }),
           shadow && shadowStyles({ color }),
         ])}
       >
         {children}
       </Touchable>
-    )
-  }
-)
+    </View>
+  )
+}
 
 const itemStyles = StyleSheet.create(
-  ({ color, itemSize }: Pick<ItemProps, 'color' | 'itemSize'>) => ({
+  ({ color, size }: Pick<ItemProps, 'color' | 'size'>) => ({
     backgroundColor: color,
-    borderRadius: itemSize / 2,
-    margin: itemSize / 4,
-    width: itemSize,
-    height: itemSize,
+    borderRadius: size / 2,
+    width: '100%',
+    height: '100%',
   })
 )
 
