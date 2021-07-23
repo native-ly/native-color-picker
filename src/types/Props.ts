@@ -4,6 +4,17 @@ import { ItemProps, MarkerProps, GradientProps } from '.'
 
 type Shadow = 'inset' | 'offset' | 'both'
 
+// interface Renderers {
+//   renderItem?: () => void
+//   // renderMarker?: () => void;
+//   // renderGradient?: () => void;
+//   // renderInsetShadow?: () => void;
+// }
+
+// interface Callbacks {
+// onSelect?: (item: string) => void
+// }
+
 interface Item {
   readonly itemProps?: ItemProps
   readonly itemStyle?: StyleProp<ViewStyle>
@@ -38,7 +49,10 @@ interface ColorSchema extends BaseType {
 
 export type Colors = string[] | ColorSchema[]
 
+// TODO? allow columns only when not horizontal
+
 // TODO
+// TODO type any to Colors
 interface BaseProps
   extends Omit<FlatListProps<any>, 'data' | 'renderItem'>,
     BaseType {

@@ -1,6 +1,8 @@
 import React from 'react'
 import { View, StyleSheet } from 'react-native'
 
+// TODO test
+// TODO add custom props
 export const InsetShadow = () => {
   return <View style={styles.container} />
 }
