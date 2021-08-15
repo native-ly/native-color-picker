@@ -54,7 +54,7 @@ $ yarn add expo-linear-gradient
 
 ## Getting Started
 
-**• Connect libary with project using ES6 import:**
+**• Connect library with project using ES6 import:**
 
 ```js
 import NativeColorPicker from 'native-color-picker'
