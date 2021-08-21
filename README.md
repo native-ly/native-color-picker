@@ -1,4 +1,4 @@
-# [native-color-picker](https://github.com/native-ly/native-color-picker)
+# [Native Color Picker](https://github.com/native-ly/native-color-picker)
 
 [![NPM version](https://img.shields.io/npm/v/native-color-picker?style=flat-square)](https://www.npmjs.com/package/native-color-picker)
 [![NPM downloads](https://img.shields.io/npm/dm/native-color-picker?style=flat-square)](https://www.npmjs.com/package/native-color-picker)
@@ -54,7 +54,7 @@ $ yarn add expo-linear-gradient
 
 ## Getting Started
 
-**• Connect libary with project using ES6 import:**
+**Connect the library with the project using ES6 import:**
 
 ```js
 import NativeColorPicker from 'native-color-picker'
