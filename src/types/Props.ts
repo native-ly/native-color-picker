@@ -4,6 +4,7 @@ import { ItemProps, MarkerProps, GradientProps } from '.'
 
 type Shadow = 'inset' | 'offset' | 'both'
 
+// TODO
 // interface Renderers {
 //   renderItem?: () => void
 //   // renderMarker?: () => void;

@@ -9,7 +9,7 @@ import {
 export const pickComponent = (
   Component?: React.ReactChildren
 ): React.ElementType => {
-  return Component || Platform.OS === 'android'
+  return Component || Platform.OS === 'android' // TODO || -> ??
     ? TouchableNativeFeedback
     : TouchableOpacity
 }

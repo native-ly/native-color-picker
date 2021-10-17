@@ -70,10 +70,10 @@ export const List = ({
       testID="colors-grid"
       // TODO? move to separate component
       renderItem={({ item }: { readonly item: string }) => {
-        // const color = typeof item === "string" ? item.color || item
-        const color = item.color || item
-        const hasGradient = item.gradient || gradient
-        const shadowType = item.shadow || shadow
+        // const color = typeof item === "string" ? item.color || item // TODO || -> ??
+        const color = item.color || item // TODO || -> ??
+        const hasGradient = item.gradient || gradient // TODO || -> ??
+        const shadowType = item.shadow || shadow // TODO || -> ??
 
         const gradientColor = Color(color).isDark()
           ? darker(color)

@@ -3,6 +3,7 @@ import { StyleSheet } from 'react-native'
 
 import { LinearGradient } from '../imports'
 
+// TODO
 import { GradientProps } from '../interfaces'
 
 export const Gradient = ({ style, size, ...props }: GradientProps) => (

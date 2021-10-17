@@ -11,6 +11,7 @@ module.exports = {
     'react-native/react-native': true,
     node: true,
     jest: true,
+    // TODO? browser
   },
   rules: {
     'react-native/no-unused-styles': 'error',
