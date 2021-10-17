@@ -5,8 +5,8 @@
 [![NPM license](https://img.shields.io/npm/l/native-color-picker?style=flat-square)](https://www.npmjs.com/package/native-color-picker)
 [![run in expo snack](https://img.shields.io/badge/Run%20in%20Snack-4630EB?style=flat-square&logo=EXPO&labelColor=FFF&logoColor=000)](https://snack.expo.io/@jbiesiada/native-color-picker)
 [![Codecov](https://img.shields.io/codecov/c/github/native-ly/native-color-picker?style=flat-square)](https://codecov.io/gh/native-ly/native-color-picker)
-[![Travis](https://img.shields.io/travis/com/native-ly/native-color-picker/main?style=flat-square)](https://travis-ci.com/native-ly/native-color-picker) <!-- TODO -->
-<!-- TODO bundlesize -->
+[![Travis](https://img.shields.io/travis/com/native-ly/native-color-picker/main?style=flat-square)](https://app.travis-ci.com/github/native-ly/native-color-picker)
+[![Bundle size](https://flat.badgen.net/packagephobia/install/native-color-picker)](https://packagephobia.com/result?p=native-color-picker)
 
 <p align="center">
   <img width="420" src="https://raw.githubusercontent.com/native-ly/native-color-picker/main/assets/preview.jpg" alt="Native Color Picker">
