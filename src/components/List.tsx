@@ -1,4 +1,4 @@
-import React, { Props, useCallback, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { FlatList, LayoutChangeEvent } from 'react-native';
 import colorSort from 'color-sort';
 import Color from 'color';
