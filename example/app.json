@@ -1,0 +1,22 @@
+{
+  "name": "native-color-picker-example",
+  "displayName": "NativeColorPicker Example",
+  "expo": {
+    "name": "native-color-picker-example",
+    "slug": "native-color-picker-example",
+    "description": "Example app for native-color-picker",
+    "privacy": "public",
+    "version": "1.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}

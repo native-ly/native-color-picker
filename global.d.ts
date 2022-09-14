@@ -1,2 +1,1 @@
-// TODO?
-declare module 'color-sort'
+declare module 'color-sort';

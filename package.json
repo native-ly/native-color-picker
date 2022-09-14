@@ -2,28 +2,34 @@
   "name": "native-color-picker",
   "version": "2.0.0-beta.1",
   "description": "Color picker for React Native",
-  "author": "Jakub Biesiada",
-  "license": "MIT",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "main": "lib/commonjs/index",
+  "module": "lib/module/index",
+  "types": "lib/typescript/index.d.ts",
+  "react-native": "src/index",
+  "source": "src/index",
+  "files": [
+    "src",
+    "lib",
+    "android",
+    "ios",
+    "cpp",
+    "native-color-picker.podspec",
+    "!lib/typescript/example",
+    "!android/build",
+    "!ios/build",
+    "!**/__tests__",
+    "!**/__fixtures__",
+    "!**/__mocks__"
+  ],
   "scripts": {
-    "prepack": "npm run prettier && npm run lint && npm run build",
-    "clean": "rimraf lib/*",
-    "build": "tsc",
-    "prebuild": "npm run clean",
-    "test": "jest --coverage",
-    "watch": "npm run build -- --watch",
-    "watch:test": "npm run test -- --watch",
-    "lint": "eslint --fix 'src/**/*.{tsx,ts}'",
-    "prettier": "prettier --write 'src/**/*.{tsx,ts}'",
-    "commit": "git-cz",
-    "semantic-release": "semantic-release",
-    "prepare": "husky install",
-    "pre-commit": "lint-staged"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/native-ly/native-color-picker.git"
+    "test": "jest",
+    "typescript": "tsc --noEmit",
+    "lint": "eslint \"**/*.{js,ts,tsx}\"",
+    "prepare": "bob build",
+    "release": "release-it",
+    "example": "yarn --cwd example",
+    "pods": "cd example && pod-install --quiet",
+    "bootstrap": "yarn example && yarn && yarn pods"
   },
   "keywords": [
     "react",
@@ -34,10 +40,16 @@
     "library",
     "expo"
   ],
+  "repository": "https://github.com/native-ly/native-color-picker",
+  "author": "Jakub Biesiada <biesiadajakub@icloud.com> (https://github.com/native-ly)",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/native-ly/native-color-picker/issues"
   },
   "homepage": "https://github.com/native-ly/native-color-picker#readme",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
   "dependencies": {
     "color": "^3.1.3",
     "color-sort": "^0.0.1",
@@ -47,46 +59,102 @@
     "react-native-reanimated": "^2.2.4"
   },
   "devDependencies": {
-    "@testing-library/jest-native": "^4.0.4",
-    "@testing-library/react-native": "^8.0.0",
-    "@types/color": "^3.0.2",
-    "@types/jest": "^27.0.2",
-    "@types/react": "^17.0.34",
-    "@types/react-native": "^0.66.3",
-    "@types/react-native-vector-icons": "^6.4.9",
-    "@typescript-eslint/parser": "^5.3.1",
-    "babel-jest": "^27.3.1",
-    "cz-conventional-changelog": "3.3.0",
-    "eslint": "^8.2.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-react": "^7.27.0",
-    "eslint-plugin-react-hooks": "^4.3.0",
-    "eslint-plugin-react-native": "^3.11.0",
-    "husky": "^7.0.4",
-    "jest": "^27.3.1",
-    "lint-staged": "^11.2.6",
-    "prettier": "^2.4.1",
-    "react": "^17.0.2",
-    "react-native": "^0.66.3",
-    "react-test-renderer": "^17.0.2",
-    "semantic-release": "^18.0.0",
-    "ts-jest": "^27.0.7",
-    "typescript": "^4.4.4"
+    "@commitlint/config-conventional": "^11.0.0",
+    "@react-native-community/eslint-config": "^2.0.0",
+    "@release-it/conventional-changelog": "^2.0.0",
+    "@types/color": "^3.0.3",
+    "@types/jest": "^26.0.0",
+    "@types/react": "^16.9.19",
+    "@types/react-native": "0.62.13",
+    "commitlint": "^11.0.0",
+    "eslint": "^7.2.0",
+    "eslint-config-prettier": "^7.0.0",
+    "eslint-plugin-prettier": "^3.1.3",
+    "husky": "^6.0.0",
+    "jest": "^26.0.1",
+    "pod-install": "^0.1.0",
+    "prettier": "^2.0.5",
+    "react": "16.13.1",
+    "react-native": "0.63.4",
+    "react-native-builder-bob": "^0.18.2",
+    "release-it": "^14.2.2",
+    "typescript": "^4.1.3"
   },
   "peerDependencies": {
-    "react": ">=16.8.0",
-    "react-native": ">=0.59.0"
+    "react": "*",
+    "react-native": "*"
   },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
+  "jest": {
+    "preset": "react-native",
+    "modulePathIgnorePatterns": [
+      "<rootDir>/example/node_modules",
+      "<rootDir>/lib/"
+    ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "release-it": {
+    "git": {
+      "commitMessage": "chore: release ${version}",
+      "tagName": "v${version}"
+    },
+    "npm": {
+      "publish": true
+    },
+    "github": {
+      "release": true
+    },
+    "plugins": {
+      "@release-it/conventional-changelog": {
+        "preset": "angular"
+      }
     }
   },
-  "lint-staged": {
-    "src/**/*.{tsx,ts}": [
-      "npm run prettier",
-      "npm run lint"
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "@react-native-community",
+      "prettier"
+    ],
+    "rules": {
+      "prettier/prettier": [
+        "error",
+        {
+          "quoteProps": "consistent",
+          "singleQuote": true,
+          "tabWidth": 2,
+          "trailingComma": "es5",
+          "useTabs": false
+        }
+      ]
+    }
+  },
+  "eslintIgnore": [
+    "node_modules/",
+    "lib/"
+  ],
+  "prettier": {
+    "quoteProps": "consistent",
+    "singleQuote": true,
+    "tabWidth": 2,
+    "trailingComma": "es5",
+    "useTabs": false
+  },
+  "react-native-builder-bob": {
+    "source": "src",
+    "output": "lib",
+    "targets": [
+      "commonjs",
+      "module",
+      [
+        "typescript",
+        {
+          "project": "tsconfig.build.json"
+        }
+      ]
     ]
   }
 }

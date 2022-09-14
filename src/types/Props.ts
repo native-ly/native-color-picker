@@ -1,8 +1,7 @@
-import { FlatListProps, StyleProp, ViewStyle } from 'react-native'
+import type { FlatListProps, StyleProp, ViewStyle } from 'react-native';
+import type { ItemProps, MarkerProps, GradientProps } from '.';
 
-import { ItemProps, MarkerProps, GradientProps } from '.'
-
-type Shadow = 'inset' | 'offset' | 'both'
+type Shadow = 'inset' | 'offset' | 'both';
 
 // TODO
 // interface Renderers {
@@ -17,19 +16,19 @@ type Shadow = 'inset' | 'offset' | 'both'
 // }
 
 interface Item {
-  readonly itemProps?: ItemProps
-  readonly itemStyle?: StyleProp<ViewStyle>
+  readonly itemProps?: ItemProps;
+  readonly itemStyle?: StyleProp<ViewStyle>;
 }
 
 interface Marker {
-  readonly markerProps?: MarkerProps
-  readonly markerStyle?: StyleProp<ViewStyle>
+  readonly markerProps?: MarkerProps;
+  readonly markerStyle?: StyleProp<ViewStyle>;
 }
 
 interface Gradient {
   // readonly gradient: true
-  readonly gradientProps?: GradientProps
-  readonly gradientStyle?: StyleProp<ViewStyle>
+  readonly gradientProps?: GradientProps;
+  readonly gradientStyle?: StyleProp<ViewStyle>;
 }
 
 // interface ReadOnly {
@@ -38,17 +37,17 @@ interface Gradient {
 
 interface BaseType extends Item, Marker, Gradient {
   // readonly gradient?: boolean
-  readonly readOnly?: boolean
-  readonly shadow?: Shadow | boolean
+  readonly readOnly?: boolean;
+  readonly shadow?: Shadow | boolean;
 }
 
 interface ColorSchema extends BaseType {
-  readonly color: string
+  readonly color: string;
   // readonly gradient?: boolean
   // readonly shadow?: boolean
 }
 
-export type Colors = string[] | ColorSchema[]
+export type Colors = string[] | ColorSchema[];
 
 // TODO? allow columns only when not horizontal
 
@@ -58,10 +57,10 @@ interface BaseProps
   extends Omit<FlatListProps<any>, 'data' | 'renderItem'>,
     BaseType {
   // interface BaseProps extends Omit<FlatListProps<Colors>, 'data' | 'renderItem'> {
-  readonly colors: Colors
-  readonly columns?: number
-  readonly horizontal?: boolean
-  readonly sort?: boolean
+  readonly colors: Colors;
+  readonly columns?: number;
+  readonly horizontal?: boolean;
+  readonly sort?: boolean;
 
   // readonly gradient?: boolean // TODO
   // readonly itemSize?: number // TODO
@@ -74,14 +73,14 @@ interface BaseProps
 
 // TODO
 interface SingleSelect {
-  readonly selectedColor?: string
-  readonly multiSelect?: false
+  readonly selectedColor?: string;
+  readonly multiSelect?: false;
 }
 
 // TODO
 interface MultiSelect {
-  readonly selectedColors?: string[]
-  readonly multiSelect?: true
+  readonly selectedColors?: string[];
+  readonly multiSelect?: true;
 }
 
 // interface ReadOnly {
@@ -94,9 +93,9 @@ interface MultiSelect {
 // readonly multiSelect?: boolean
 // }
 
-type SelectionType = SingleSelect | MultiSelect
+type SelectionType = SingleSelect | MultiSelect;
 
 // type AccessType = ReadOnly | Writable
 
-export type Props = BaseProps & SelectionType
+export type Props = BaseProps & SelectionType;
 //  & AccessType

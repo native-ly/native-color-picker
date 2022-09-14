@@ -1,16 +1,15 @@
-import React, { useCallback, useState } from 'react'
-import { FlatList, LayoutChangeEvent } from 'react-native'
-import colorSort from 'color-sort'
-import Color from 'color'
+import React, { Props, useCallback, useState } from 'react';
+import { FlatList, LayoutChangeEvent } from 'react-native';
+import colorSort from 'color-sort';
+import Color from 'color';
+import { darker, lighter } from 'src/helpers';
+import type { Colors } from 'src/types/Props';
+import { Gradient } from './Gradient';
+import { InsetShadow } from './InsetShadow';
+import { Item } from './Item';
+import { Marker } from './Marker';
 
-import { Props } from '../interfaces'
-
-import { Item, Marker, InsetShadow, Gradient } from '../components'
-
-import { lighter, darker } from '../helpers'
-import { Colors } from '../interfaces/Props' // TODO import from '../interfaces'
-
-type HandleLayoutCallback = (e: LayoutChangeEvent) => void
+type HandleLayoutCallback = (e: LayoutChangeEvent) => void;
 
 export const List = ({
   colors,
@@ -30,33 +29,35 @@ export const List = ({
   linearGradientStyle,
   ...props
 }: Props) => {
-  const [size, setSize] = useState(itemSize)
+  const [size, setSize] = useState(itemSize);
 
   // TODO? add local selected items
 
   // TODO refactor + types to HandleColorSelectCallback
+  // TODO? remove useCallback
   const handleColorSelect = useCallback(
     (color: Colors[number]) => {
       if (props.readOnly) {
-        return
+        return;
       }
 
-      props.onSelect?.(color)
+      props.onSelect?.(color);
     },
     [props]
-  )
+  );
 
+  // TODO? remove useCallback
   const handleLayout = useCallback<HandleLayoutCallback>(
     (e) => {
       // TODO check if itemSize in props
-      props.onLayout?.(e)
+      props.onLayout?.(e);
 
-      const { width } = e.nativeEvent.layout
+      const { width } = e.nativeEvent.layout;
 
-      setSize(width / columns)
+      setSize(width / columns);
     },
     [columns, props]
-  )
+  );
 
   return (
     // TODO add internal context
@@ -71,20 +72,20 @@ export const List = ({
       // TODO? move to separate component
       renderItem={({ item }: { readonly item: string }) => {
         // const color = typeof item === "string" ? item.color || item // TODO || -> ??
-        const color = item.color || item // TODO || -> ??
-        const hasGradient = item.gradient || gradient // TODO || -> ??
-        const shadowType = item.shadow || shadow // TODO || -> ??
+        const color = item.color || item; // TODO || -> ??
+        const hasGradient = item.gradient || gradient; // TODO || -> ??
+        const shadowType = item.shadow || shadow; // TODO || -> ??
 
         const gradientColor = Color(color).isDark()
           ? darker(color)
-          : lighter(color)
+          : lighter(color);
 
         const isSelectedItem = props.multiSelect
           ? (props.selectedColors || []).includes(color) // TODO refactor
-          : props.selectedColor === color
+          : props.selectedColor === color;
 
-        const offsetShadow = [true, 'offset', 'both']
-        const insetShadow = ['inset', 'both']
+        const offsetShadow = [true, 'offset', 'both'];
+        const insetShadow = ['inset', 'both'];
 
         return (
           <Item
@@ -119,8 +120,8 @@ export const List = ({
               />
             )}
           </Item>
-        )
+        );
       }}
     />
-  )
-}
+  );
+};

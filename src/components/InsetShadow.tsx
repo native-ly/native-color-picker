@@ -1,13 +1,12 @@
-import React from 'react'
-import { View, StyleSheet } from 'react-native'
+import React from 'react';
+import { View, StyleSheet } from 'react-native';
 
 // TODO test
 // TODO add custom props
 export const InsetShadow = () => {
-  return <View style={styles.container} />
-}
+  return <View style={styles.container} />;
+};
 
-// TODO
 const styles = StyleSheet.create({
   container: {
     margin: 10,
@@ -20,4 +19,4 @@ const styles = StyleSheet.create({
     shadowRadius: 10,
     shadowOpacity: 1,
   },
-})
+});
