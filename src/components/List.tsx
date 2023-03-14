@@ -2,8 +2,8 @@ import React, { useCallback, useState } from 'react';
 import { FlatList, LayoutChangeEvent } from 'react-native';
 import colorSort from 'color-sort';
 import Color from 'color';
-import { darker, lighter } from 'src/helpers';
-import type { Colors } from 'src/types/Props';
+import { darker, lighter } from '../helpers';
+import type { Colors } from '../types/Props';
 import { Gradient } from './Gradient';
 import { InsetShadow } from './InsetShadow';
 import { Item } from './Item';
@@ -16,7 +16,7 @@ export const List = ({
   columns = 5,
   gradient = false,
   horizontal = false,
-  // itemSize = 44,
+  itemSize = 44,
   // TODO item min size
   // TODO item max size
   shadow = false,
@@ -28,7 +28,7 @@ export const List = ({
   linearGradientProps,
   linearGradientStyle,
   ...props
-}: Props) => {
+}: any) => {
   const [size, setSize] = useState(itemSize);
 
   // TODO? add local selected items

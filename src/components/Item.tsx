@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { pickComponent } from 'src/helpers';
-import type { ItemProps } from 'src/types';
+import { pickComponent } from '../helpers';
+import type { ItemProps } from '../types';
 
 export const Item: React.FC<ItemProps> = ({
   color,
@@ -13,19 +13,17 @@ export const Item: React.FC<ItemProps> = ({
   ...props
 }) => {
   // TODO update type
-  // TODO? remove useMemo
   const Touchable = useMemo(() => pickComponent(Component), [Component]);
 
   const styles = getStyles({ color, size });
 
   return (
-    <View style={{ width: size, height: size }}>
+    <View style={styles.wrapper}>
       <Touchable
         {...props}
         style={StyleSheet.flatten([
           style,
           styles.item,
-          // itemStyles({ color, size }),
           shadow && styles.shadow,
         ])}
       >
@@ -36,8 +34,12 @@ export const Item: React.FC<ItemProps> = ({
 };
 
 const getStyles = ({ color, size }: Pick<ItemProps, 'color' | 'size'>) => {
-  // TODO
   return StyleSheet.create({
+    // TODO rename
+    wrapper: {
+      width: size,
+      height: size,
+    },
     item: {
       backgroundColor: color,
       borderRadius: size / 2,
@@ -56,25 +58,3 @@ const getStyles = ({ color, size }: Pick<ItemProps, 'color' | 'size'>) => {
     },
   });
 };
-
-// const itemStyles = StyleSheet.create(
-//   ({ color, size }: Pick<ItemProps, 'color' | 'size'>) => ({
-//     backgroundColor: color,
-//     borderRadius: size / 2,
-//     width: '100%',
-//     height: '100%',
-//   })
-// )
-
-// const shadowStyles = StyleSheet.create(
-//   ({ color }: Pick<ItemProps, 'color'>) => ({
-//     elevation: 6,
-//     shadowOpacity: 0.75,
-//     shadowRadius: 5,
-//     shadowColor: color,
-//     shadowOffset: {
-//       width: 0,
-//       height: 0,
-//     },
-//   })
-// )

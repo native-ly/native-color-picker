@@ -5,16 +5,22 @@ interface Props {
   readonly size: number;
 }
 
-export const FadeMarker = (props: Props) => (
-  <View testID="fade-marker" style={markerStyles(props)} />
-);
+export const FadeMarker = (props: Props) => {
+  const styles = getStyles(props);
 
-const markerStyles = StyleSheet.create(({ size }: Props) => ({
-  ...StyleSheet.absoluteFillObject,
-  // backgroundColor: '#fff8', // TODO update
-  // marginTop: -(size / 2), // TODO update
-  // marginLeft: -(size / 2), // TODO update
-  // borderRadius: size / 2, // TODO update
-  width: size,
-  height: size,
-}));
+  return <View testID="fade-marker" style={styles.marker} />;
+};
+
+const getStyles = ({ size }: Props) => {
+  return StyleSheet.create({
+    marker: {
+      ...StyleSheet.absoluteFillObject,
+      // backgroundColor: '#fff8', // TODO update
+      // marginTop: -(size / 2), // TODO update
+      // marginLeft: -(size / 2), // TODO update
+      // borderRadius: size / 2, // TODO update
+      width: size,
+      height: size,
+    },
+  });
+};

@@ -1,21 +1,17 @@
 import React, { useMemo } from 'react';
 import { View, StyleSheet } from 'react-native';
-import Animated, {
-  useSharedValue,
-  useAnimatedStyle,
-  withTiming,
-} from 'react-native-reanimated';
+import Animated, { useSharedValue, withTiming } from 'react-native-reanimated';
 import Icon from 'native-icons';
 import Color from 'color';
-import { checkColor } from 'src/helpers';
-import type { MarkerProps } from 'src/types';
+import { checkColor } from '../../helpers';
+import type { MarkerProps } from '../../types';
 import { BorderMarker } from './BorderMarker';
 import { FadeMarker } from './FadeMarker';
 
 export const Marker = ({
   color,
   size,
-  animate,
+  // animate,
   markerDisplay = 'contrast',
   markerType = 'border',
   iconName = 'md-checkmark',
@@ -76,6 +72,7 @@ export const Marker = ({
             // TODO
             // testId="icon-marker"
             type={iconType}
+            // @ts-ignore
             name={iconName}
             size={(size / 3) * 2} // TODO update
             color={colorValue}

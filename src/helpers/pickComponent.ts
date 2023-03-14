@@ -7,7 +7,7 @@ import {
 
 // TODO return type
 export const pickComponent = (
-  Component?: React.ReactChildren
+  Component?: typeof React.Children
 ): React.ElementType => {
   return Component || Platform.OS === 'android'
     ? TouchableNativeFeedback

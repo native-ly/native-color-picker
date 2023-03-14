@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
-import type { GradientProps } from 'src/types';
+import { LinearGradient } from '../imports';
+import type { GradientProps } from '../types';
 
 export const Gradient = ({ style, size, ...props }: GradientProps) => {
   const styles = getStyles({ size });
@@ -14,7 +14,6 @@ export const Gradient = ({ style, size, ...props }: GradientProps) => {
   );
 };
 
-// TODO
 const getStyles = ({ size }: Pick<GradientProps, 'size'>) => {
   return StyleSheet.create({
     gradient: {
@@ -24,11 +23,3 @@ const getStyles = ({ size }: Pick<GradientProps, 'size'>) => {
     },
   });
 };
-
-// const gradientStyles = StyleSheet.create(
-//   ({ size }: Pick<GradientProps, 'size'>) => ({
-//     ...StyleSheet.absoluteFillObject,
-//     borderRadius: size / 2, // TODO?
-//     zIndex: -1,
-//   })
-// )
